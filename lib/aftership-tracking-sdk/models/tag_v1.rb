@@ -13,7 +13,7 @@ module AftershipAPI::Model
     EXCEPTION = "Exception".freeze
     EXPIRED = "Expired".freeze
     def self.all_vars
-      @all_vars ||= [PENDING,INFORECEIVED,INTRANSIT,OUTFORDELIVERY,ATTEMPTFAIL,DELIVERED,AVAILABLEFORPICKUP,EXCEPTION,EXPIRED,].freeze
+      @all_vars ||= [PENDING, INFORECEIVED, INTRANSIT, OUTFORDELIVERY, ATTEMPTFAIL, DELIVERED, AVAILABLEFORPICKUP, EXCEPTION, EXPIRED,].freeze
     end
 
     # Builds the enum from string

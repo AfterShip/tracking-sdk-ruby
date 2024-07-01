@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class NextCouriersTracking
-
     # Unique code of courier. Get courier 
     # slug: String;
     attr_accessor :slug
@@ -170,4 +169,3 @@ module AftershipAPI::Model
     end
   end
 end
-

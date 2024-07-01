@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class TrackingUpdateTrackingBySlugTrackingNumberRequest
-
     # The phone number(s) to receive sms notifications.  Supports up to 3 phone numbers.
     # smses?: String[];
     attr_accessor :smses
@@ -390,4 +389,3 @@ module AftershipAPI::Model
     end
   end
 end
-

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CarbonEmissionsTracking
-
     # The unit in which the value field is expressed. Allowed values: kg
     # unit?: String;
     attr_accessor :unit
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

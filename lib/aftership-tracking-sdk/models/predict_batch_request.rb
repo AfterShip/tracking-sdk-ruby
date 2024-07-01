@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class PredictBatchRequest
-
     # 
     # estimated_delivery_dates: EstimatedDeliveryDateRequest[];
     attr_accessor :estimated_delivery_dates
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

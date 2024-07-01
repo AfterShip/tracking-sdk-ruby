@@ -16,7 +16,7 @@ module AftershipAPI::Model
     FASTWAY_GROUP = "fastway-group".freeze
     ASENDIA_GROUP = "asendia-group".freeze
     def self.all_vars
-      @all_vars ||= [AMAZON_GROUP,FEDEX_GROUP,TOLL_GROUP,TAQBIN_GROUP,TNT_GROUP,CJ_GROUP,HERMES_GROUP,DPD_GROUP,GLS_GROUP,DHL_GROUP,FASTWAY_GROUP,ASENDIA_GROUP,].freeze
+      @all_vars ||= [AMAZON_GROUP, FEDEX_GROUP, TOLL_GROUP, TAQBIN_GROUP, TNT_GROUP, CJ_GROUP, HERMES_GROUP, DPD_GROUP, GLS_GROUP, DHL_GROUP, FASTWAY_GROUP, ASENDIA_GROUP,].freeze
     end
 
     # Builds the enum from string

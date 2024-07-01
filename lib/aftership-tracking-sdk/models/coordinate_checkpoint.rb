@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CoordinateCheckpoint
-
     # Represents the latitude.
     # latitude?: Float;
     attr_accessor :latitude
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DataTrackingResponseV1
-
     # Object describes the tracking information.<div style="display:none; height: 0"></div>
     # tracking?: Tracking;
     attr_accessor :tracking
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

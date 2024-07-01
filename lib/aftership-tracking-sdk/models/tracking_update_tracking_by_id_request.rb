@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class TrackingUpdateTrackingByIdRequest
-
     # The phone number(s) to receive sms notifications.  Input `[]` to clear the value of this field. Supports up to 3 phone numbers.
     # smses?: String[];
     attr_accessor :smses
@@ -500,4 +499,3 @@ module AftershipAPI::Model
     end
   end
 end
-

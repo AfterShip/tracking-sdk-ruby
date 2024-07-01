@@ -44,7 +44,7 @@ module AftershipAPI
       begin
         call_api_internal(http_method, path, opts)
       rescue ApiError => e
-        if retries > 0 && (e.error_code == AftershipAPI::TIMED_OUT || e.status_code >= 500 )
+        if retries > 0 && (e.error_code == AftershipAPI::TIMED_OUT || e.status_code >= 500)
           retries -= 1
           delay_with_jitter
           retry
@@ -109,7 +109,7 @@ module AftershipAPI
       url = build_request_url(path, opts)
       http_method = http_method.to_sym.downcase
 
-      header_params = @default_headers.merge(opts[:header_params] || {}).merge({'as-api-key' => config.as_api_key})
+      header_params = @default_headers.merge(opts[:header_params] || {}).merge({ 'as-api-key' => config.as_api_key })
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
       follow_location = opts[:follow_location] || true

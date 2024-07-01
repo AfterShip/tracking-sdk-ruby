@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CustomEstimatedDeliveryDateTracking
-
     # The format of the EDD. Either a single date or a date range.
     # type?: String;
     attr_accessor :type
@@ -180,4 +179,3 @@ module AftershipAPI::Model
     end
   end
 end
-

@@ -16,9 +16,9 @@ module AftershipAPI
     # @param body [Model::TrackingCreateTrackingRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Model::Tracking] 
-    def create_tracking(body:,opts: {})
+    def create_tracking(body:, opts: {})
       if "tracking" != ""
-        body = {:'tracking' => body}
+        body = { :'tracking' => body }
       end
       opts[:body] = body
       data, _status_code, _headers = create_tracking_with_http_info(opts: opts)
@@ -70,7 +70,7 @@ module AftershipAPI
     # @param [Hash] opts the optional parameters
     # @return [Model::PartialDeleteTracking] 
     def delete_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = delete_tracking_by_id_with_http_info(id:id, opts: opts)
+      data, _status_code, _headers = delete_tracking_by_id_with_http_info(id: id, opts: opts)
       data
     end
 
@@ -79,7 +79,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.delete_tracking_by_id ...'
       end
 
-      if id.nil? or id.to_s == ''
+      if id.nil? || (id.to_s == '')
         raise InvalidParamError.new "id cannot be nil or empty"
       end
 
@@ -130,7 +130,7 @@ module AftershipAPI
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::PartialDeleteTracking] 
     def delete_tracking_by_slug_tracking_number(slug:, tracking_number:, opts: {})
-      data, _status_code, _headers = delete_tracking_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = delete_tracking_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -139,10 +139,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.delete_tracking_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 
@@ -194,7 +194,7 @@ module AftershipAPI
     # @option opts [String] :lang Translate checkpoint messages from the carrier’s provided language to the target language. Supported target languages include:</br>&nbsp;&nbsp;&nbsp;&nbsp;- English (en)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French (fr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French Canadian (fr-CA)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Arabic (ar)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Bulgarian (bg)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Catalan (ca)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Croatian (hr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Czech (cs)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Danish (da)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Dutch (nl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Estonian (et)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Filipino (tl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Finnish (fi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- German (de)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Greek (el)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hebrew (he)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hindi (hi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hungarian (hu)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Indonesian (id)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Italian (it)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Japanese (ja)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Korean (ko)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Latvian (lv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Lithuanian (lt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Malay (ms)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Polish (pl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Portuguese (pt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Romanian (ro)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Russian (ru)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Serbian (sr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovak (sk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovenian (sl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Spanish (es)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Swedish (sv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Thai (th)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Turkish (tr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Ukrainian (uk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Vietnamese (vi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Simplified Chinese (zh-Hans)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Traditional Chinese (zh-Hant)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Norwegian (nb)</br>
     # @return [Model::Tracking] 
     def get_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = get_tracking_by_id_with_http_info(id:id, opts: opts)
+      data, _status_code, _headers = get_tracking_by_id_with_http_info(id: id, opts: opts)
       data
     end
 
@@ -203,7 +203,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_tracking_by_id ...'
       end
 
-      if id.nil? or id.to_s == ''
+      if id.nil? || (id.to_s == '')
         raise InvalidParamError.new "id cannot be nil or empty"
       end
 
@@ -258,7 +258,7 @@ module AftershipAPI
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::Tracking] 
     def get_tracking_by_slug_tracking_number(slug:, tracking_number:, opts: {})
-      data, _status_code, _headers = get_tracking_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = get_tracking_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -267,10 +267,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_tracking_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 
@@ -407,12 +407,12 @@ module AftershipAPI
     # @param body [Model::MarkTrackingCompletedByIdRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Model::Tracking] 
-    def mark_tracking_completed_by_id(id:, body:,opts: {})
+    def mark_tracking_completed_by_id(id:, body:, opts: {})
       if "" != ""
-        body = {:'' => body}
+        body = { :'' => body }
       end
       opts[:body] = body
-      data, _status_code, _headers = mark_tracking_completed_by_id_with_http_info(id:id, opts: opts)
+      data, _status_code, _headers = mark_tracking_completed_by_id_with_http_info(id: id, opts: opts)
       data
     end
 
@@ -421,7 +421,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.mark_tracking_completed_by_id ...'
       end
 
-      if id.nil? or id.to_s == ''
+      if id.nil? || (id.to_s == '')
         raise InvalidParamError.new "id cannot be nil or empty"
       end
 
@@ -473,12 +473,12 @@ module AftershipAPI
     # @option opts [String] :tracking_ship_date Additional field required by some carriers to retrieve the tracking info. The date the shipment was sent, using the format YYYYMMDD. Refer to our article on  for more details.
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::Tracking] 
-    def mark_tracking_completed_by_slug_tracking_number(slug:, tracking_number:, body:,opts: {})
+    def mark_tracking_completed_by_slug_tracking_number(slug:, tracking_number:, body:, opts: {})
       if "" != ""
-        body = {:'' => body}
+        body = { :'' => body }
       end
       opts[:body] = body
-      data, _status_code, _headers = mark_tracking_completed_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = mark_tracking_completed_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -487,10 +487,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.mark_tracking_completed_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 
@@ -540,7 +540,7 @@ module AftershipAPI
     # @param [Hash] opts the optional parameters
     # @return [Model::PartialUpdateTracking] 
     def retrack_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = retrack_tracking_by_id_with_http_info(id:id, opts: opts)
+      data, _status_code, _headers = retrack_tracking_by_id_with_http_info(id: id, opts: opts)
       data
     end
 
@@ -549,7 +549,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.retrack_tracking_by_id ...'
       end
 
-      if id.nil? or id.to_s == ''
+      if id.nil? || (id.to_s == '')
         raise InvalidParamError.new "id cannot be nil or empty"
       end
 
@@ -600,7 +600,7 @@ module AftershipAPI
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::PartialUpdateTracking] 
     def retrack_tracking_by_slug_tracking_number(slug:, tracking_number:, opts: {})
-      data, _status_code, _headers = retrack_tracking_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = retrack_tracking_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -609,10 +609,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.retrack_tracking_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 
@@ -663,12 +663,12 @@ module AftershipAPI
     # @param body [Model::TrackingUpdateTrackingByIdRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Model::Tracking] 
-    def update_tracking_by_id(id:, body:,opts: {})
+    def update_tracking_by_id(id:, body:, opts: {})
       if "tracking" != ""
-        body = {:'tracking' => body}
+        body = { :'tracking' => body }
       end
       opts[:body] = body
-      data, _status_code, _headers = update_tracking_by_id_with_http_info(id:id, opts: opts)
+      data, _status_code, _headers = update_tracking_by_id_with_http_info(id: id, opts: opts)
       data
     end
 
@@ -677,7 +677,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.update_tracking_by_id ...'
       end
 
-      if id.nil? or id.to_s == ''
+      if id.nil? || (id.to_s == '')
         raise InvalidParamError.new "id cannot be nil or empty"
       end
 
@@ -729,12 +729,12 @@ module AftershipAPI
     # @option opts [String] :tracking_ship_date Additional field required by some carriers to retrieve the tracking info. The date the shipment was sent, using the format YYYYMMDD. Refer to our article on  for more details.
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::Tracking] 
-    def update_tracking_by_slug_tracking_number(slug:, tracking_number:, body:,opts: {})
+    def update_tracking_by_slug_tracking_number(slug:, tracking_number:, body:, opts: {})
       if "tracking" != ""
-        body = {:'tracking' => body}
+        body = { :'tracking' => body }
       end
       opts[:body] = body
-      data, _status_code, _headers = update_tracking_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = update_tracking_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -743,10 +743,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: TrackingApi.update_tracking_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class GetTrackingsResponse
-
     # 
     # pagination: Pagination;
     attr_accessor :pagination
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

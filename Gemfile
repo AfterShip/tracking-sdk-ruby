@@ -9,4 +9,3 @@ group :development, :test do
   gem 'dotenv'
   gem "webmock", "~> 3.23"
 end
-

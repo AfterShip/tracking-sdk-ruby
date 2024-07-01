@@ -16,9 +16,9 @@ module AftershipAPI
     # @param body [Model::TrackingDetectCourierRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Model::DetectCourierResponse] 
-    def detect_courier(body:,opts: {})
+    def detect_courier(body:, opts: {})
       if "tracking" != ""
-        body = {:'tracking' => body}
+        body = { :'tracking' => body }
       end
       opts[:body] = body
       data, _status_code, _headers = detect_courier_with_http_info(opts: opts)

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DataNotificationResponseV1
-
     # Object describes the notification information.
     # notification?: Notification;
     attr_accessor :notification
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

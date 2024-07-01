@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class TrackingDetectCourierRequest
-
     # Tracking number of a shipment.
     # tracking_number: String;
     attr_accessor :tracking_number
@@ -260,4 +259,3 @@ module AftershipAPI::Model
     end
   end
 end
-

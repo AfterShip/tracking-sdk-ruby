@@ -26,7 +26,7 @@ module AftershipAPI
     # @option opts [String] :tracking_state Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
     # @return [Model::GetCheckpointBySlugTrackingNumberResponse] 
     def get_checkpoint_by_slug_tracking_number(slug:, tracking_number:, opts: {})
-      data, _status_code, _headers = get_checkpoint_by_slug_tracking_number_with_http_info(slug:slug, tracking_number:tracking_number, opts: opts)
+      data, _status_code, _headers = get_checkpoint_by_slug_tracking_number_with_http_info(slug: slug, tracking_number: tracking_number, opts: opts)
       data
     end
 
@@ -35,10 +35,10 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: LastCheckpointApi.get_checkpoint_by_slug_tracking_number ...'
       end
 
-      if slug.nil? or slug.to_s == ''
+      if slug.nil? || (slug.to_s == '')
         raise InvalidParamError.new "slug cannot be nil or empty"
       end
-      if tracking_number.nil? or tracking_number.to_s == ''
+      if tracking_number.nil? || (tracking_number.to_s == '')
         raise InvalidParamError.new "tracking_number cannot be nil or empty"
       end
 
@@ -92,7 +92,7 @@ module AftershipAPI
     # @option opts [String] :lang Support Chinese to English translation for `china-ems` and `china-post` only
     # @return [Model::GetCheckpointByTrackingIdResponse] 
     def get_checkpoint_by_tracking_id(tracking_id:, opts: {})
-      data, _status_code, _headers = get_checkpoint_by_tracking_id_with_http_info(tracking_id:tracking_id, opts: opts)
+      data, _status_code, _headers = get_checkpoint_by_tracking_id_with_http_info(tracking_id: tracking_id, opts: opts)
       data
     end
 
@@ -101,7 +101,7 @@ module AftershipAPI
         @api_client.config.logger.debug 'Calling API: LastCheckpointApi.get_checkpoint_by_tracking_id ...'
       end
 
-      if tracking_id.nil? or tracking_id.to_s == ''
+      if tracking_id.nil? || (tracking_id.to_s == '')
         raise InvalidParamError.new "tracking_id cannot be nil or empty"
       end
 

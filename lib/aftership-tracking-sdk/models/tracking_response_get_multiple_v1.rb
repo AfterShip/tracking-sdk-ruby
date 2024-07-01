@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class TrackingResponseGetMultipleV1
-
     # Meta data
     # meta: MetaV1;
     attr_accessor :meta
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

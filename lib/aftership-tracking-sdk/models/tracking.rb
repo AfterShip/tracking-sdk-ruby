@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Tracking
-
     # Tracking ID.
     # id?: String;
     attr_accessor :id
@@ -920,4 +919,3 @@ module AftershipAPI::Model
     end
   end
 end
-

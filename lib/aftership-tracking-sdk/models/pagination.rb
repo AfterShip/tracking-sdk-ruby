@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Pagination
-
     attr_accessor :total, :page, :limit, :has_next_page
     # Initializes the object
     # @param attributes [Hash] Model attributes in the form of hash
@@ -23,23 +22,22 @@ module AftershipAPI::Model
         self.page = attributes[:'page']
       end 
 
-	  if attributes.key?(:'limit')
+      if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
       end 
 
-	  if attributes.key?(:'has_next_page')
+      if attributes.key?(:'has_next_page')
         self.has_next_page = attributes[:'has_next_page']
       end 
-
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
         :'total' => :'Integer',
-		:'page' => :'Integer',
-		:'limit' => :'Integer',
-		:'has_next_page' => :'Boolean'
+    :'page' => :'Integer',
+    :'limit' => :'Integer',
+    :'has_next_page' => :'Boolean'
       }
     end
 
@@ -156,4 +154,3 @@ module AftershipAPI::Model
     end
   end
 end
-

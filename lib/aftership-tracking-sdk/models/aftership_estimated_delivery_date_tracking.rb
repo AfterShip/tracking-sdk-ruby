@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class AftershipEstimatedDeliveryDateTracking
-
     # The estimated arrival date of the shipment.
     # estimated_delivery_date?: String;
     attr_accessor :estimated_delivery_date
@@ -180,4 +179,3 @@ module AftershipAPI::Model
     end
   end
 end
-

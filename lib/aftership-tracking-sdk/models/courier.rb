@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Courier
-
     # Unique code of courier. Get the slugs from .
     # slug?: String;
     attr_accessor :slug
@@ -240,4 +239,3 @@ module AftershipAPI::Model
     end
   end
 end
-

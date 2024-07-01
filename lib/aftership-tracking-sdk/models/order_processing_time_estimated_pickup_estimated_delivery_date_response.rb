@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class OrderProcessingTimeEstimatedPickupEstimatedDeliveryDateResponse
-
     # Processing time of an order, from being placed to being picked up. Only support day as value now.AfterShip will set day as the default value.
     # unit?: String;
     attr_accessor :unit
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

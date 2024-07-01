@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class ReasonEventsCheckpoint
-
     # The code of the reason. 
     # code?: String;
     attr_accessor :code
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

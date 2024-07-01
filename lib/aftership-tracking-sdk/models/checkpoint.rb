@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Checkpoint
-
     # The date and time of the checkpoint event was added to AfterShip. It uses the format `YYYY-MM-DDTHH:mm:ssZ` for the timezone GMT +0.
     # created_at?: String;
     attr_accessor :created_at
@@ -300,4 +299,3 @@ module AftershipAPI::Model
     end
   end
 end
-

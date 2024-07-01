@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DataTrackingResponseGetMultipleV1
-
     # Page to show. (Default: 1)
     # page?: Integer;
     attr_accessor :page
@@ -280,4 +279,3 @@ module AftershipAPI::Model
     end
   end
 end
-

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class NotificationRequestV1
-
     # Email address(es) to receive email notifications.Accept either array or comma separated as input.
     # emails?: String[];
     attr_accessor :emails
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

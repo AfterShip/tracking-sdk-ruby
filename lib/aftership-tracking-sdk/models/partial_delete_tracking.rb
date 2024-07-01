@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class PartialDeleteTracking
-
     # Tracking id
     # id?: String;
     attr_accessor :id
@@ -240,4 +239,3 @@ module AftershipAPI::Model
     end
   end
 end
-

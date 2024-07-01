@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DataTrackingDeleteResponseV1
-
     # Partial tracking model
     # tracking?: PartialDeleteTracking;
     attr_accessor :tracking
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

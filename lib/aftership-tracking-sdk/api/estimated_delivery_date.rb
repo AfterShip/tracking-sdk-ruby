@@ -16,9 +16,9 @@ module AftershipAPI
     # @param body [Model::PredictBatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Model::PredictBatchResponse] 
-    def predict_batch(body:,opts: {})
+    def predict_batch(body:, opts: {})
       if "" != ""
-        body = {:'' => body}
+        body = { :'' => body }
       end
       opts[:body] = body
       data, _status_code, _headers = predict_batch_with_http_info(opts: opts)

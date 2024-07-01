@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Notification
-
     # Email address(es) to receive email notifications.
     # emails?: String[];
     attr_accessor :emails
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

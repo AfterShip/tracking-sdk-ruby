@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class EstimatedPickupEstimatedDeliveryDateResponse
-
     # The local order time in the origin address time zone of the package.
     # order_time: String;
     attr_accessor :order_time
@@ -190,4 +189,3 @@ module AftershipAPI::Model
     end
   end
 end
-

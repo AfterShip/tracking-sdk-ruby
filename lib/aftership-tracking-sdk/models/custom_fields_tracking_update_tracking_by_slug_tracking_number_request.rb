@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CustomFieldsTrackingUpdateTrackingBySlugTrackingNumberRequest
-
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -17,14 +16,12 @@ module AftershipAPI::Model
 
     # Attribute type mapping.
     def self.openapi_types
-      {
-      }
+      {}
     end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
-      {
-      }
+      {}
     end
 
     # Builds the object from hash
@@ -140,4 +137,3 @@ module AftershipAPI::Model
     end
   end
 end
-

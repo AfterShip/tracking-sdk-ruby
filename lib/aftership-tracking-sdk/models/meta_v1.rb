@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class MetaV1
-
     # meta code
     # code: Integer;
     attr_accessor :code
@@ -170,4 +169,3 @@ module AftershipAPI::Model
     end
   end
 end
-

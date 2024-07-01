@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class EstimatedDeliveryDateResponse
-
     # AfterShip's unique code of courier. Please refer to https://track.aftership.com/couriers/download.
     # slug: String;
     attr_accessor :slug
@@ -260,4 +259,3 @@ module AftershipAPI::Model
     end
   end
 end
-

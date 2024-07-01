@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DetectCourierResponse
-
     # Total count of courier objects
     # total?: Integer;
     attr_accessor :total
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-
