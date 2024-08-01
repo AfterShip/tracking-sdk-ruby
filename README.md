@@ -225,7 +225,7 @@ p resp.to_json
 **POST** /couriers/detect
 
 ```ruby
-req = AftershipAPI::Model::TrackingDetectCourierRequest.new
+req = AftershipAPI::Model::DetectCourierRequest.new
 req.tracking_number = "<tracking_number>"
 resp = AftershipAPI::Courier.detect_courier(body: req)
 p resp.to_json
