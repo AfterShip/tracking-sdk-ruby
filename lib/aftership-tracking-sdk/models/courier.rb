@@ -43,6 +43,10 @@ module AftershipAPI::Model
     # service_from_country_regions?: String[];
     attr_accessor :service_from_country_regions
 
+    # Refers to the authentication details required for each specific carrier (such as API keys, username, password, etc.) that the user must provide to create a carrier connection. The content varies by carrier.
+    # credentials?: CredentialsCourier;
+    attr_accessor :credentials
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -93,6 +97,10 @@ module AftershipAPI::Model
       if attributes.key?(:'service_from_country_regions')
         self.service_from_country_regions = attributes[:'service_from_country_regions']
       end 
+
+      if attributes.key?(:'credentials')
+        self.credentials = attributes[:'credentials']
+      end 
     end
 
     # Attribute type mapping.
@@ -108,6 +116,7 @@ module AftershipAPI::Model
         :'default_language' => :'String',
         :'support_languages' => :'Array<String>',
         :'service_from_country_regions' => :'Array<String>',
+        :'credentials' => :'CredentialsCourier',
       }
     end
 
@@ -124,6 +133,7 @@ module AftershipAPI::Model
         :'default_language' => :'default_language',
         :'support_languages' => :'support_languages',
         :'service_from_country_regions' => :'service_from_country_regions',
+        :'credentials' => :'credentials',
       }
     end
 

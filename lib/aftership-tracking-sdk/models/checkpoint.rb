@@ -48,7 +48,7 @@ module AftershipAPI::Model
     attr_accessor :message
 
     # Current status of tracking. (
-    # tag?: TagV1;
+    # tag?: Tag;
     attr_accessor :tag
 
     # Current subtag of checkpoint. (
@@ -165,7 +165,7 @@ module AftershipAPI::Model
         :'country_region' => :'String',
         :'country_region_name' => :'String',
         :'message' => :'String',
-        :'tag' => :'TagV1',
+        :'tag' => :'Tag',
         :'subtag' => :'String',
         :'subtag_message' => :'String',
         :'raw_tag' => :'String',

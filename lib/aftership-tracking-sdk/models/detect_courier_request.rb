@@ -12,8 +12,8 @@ module AftershipAPI::Model
     attr_accessor :slug
 
     # The postal code of receiver's address. Required by some couriers. Refer to  for more details
-    # tracking_postal_code?: String;
-    attr_accessor :tracking_postal_code
+    # destination_postal_code?: String;
+    attr_accessor :destination_postal_code
 
     # Shipping date in `YYYYMMDD` format. Required by some couriers. Refer to  for more details
     # tracking_ship_date?: String;
@@ -27,20 +27,12 @@ module AftershipAPI::Model
     # tracking_key?: String;
     attr_accessor :tracking_key
 
-    # Origin Country/Region of the shipment for a specific courier. Required by some couriers.
-    # tracking_origin_country_region?: String;
-    attr_accessor :tracking_origin_country_region
-
-    # Destination Country/Region of the shipment for a specific courier. Required by some couriers. Refer to  for more details
-    # tracking_destination_country_region?: String;
-    attr_accessor :tracking_destination_country_region
-
     # State of the destination shipping address of the shipment. Required by some couriers.
-    # tracking_state?: String;
-    attr_accessor :tracking_state
+    # destination_state?: String;
+    attr_accessor :destination_state
 
     # Slug group is a group of slugs which belong to same courier. For example, when you inpit "fedex-group" as slug_group, AfterShip will detect the tracking with "fedex-uk", "fedex-fims", and other slugs which belong to "fedex". It cannot be used with slug at the same time. (
-    # slug_group?: SlugGroupV1;
+    # slug_group?: SlugGroup;
     attr_accessor :slug_group
 
     # Enter .
@@ -70,8 +62,8 @@ module AftershipAPI::Model
         self.slug = attributes[:'slug']
       end 
 
-      if attributes.key?(:'tracking_postal_code')
-        self.tracking_postal_code = attributes[:'tracking_postal_code']
+      if attributes.key?(:'destination_postal_code')
+        self.destination_postal_code = attributes[:'destination_postal_code']
       end 
 
       if attributes.key?(:'tracking_ship_date')
@@ -86,16 +78,8 @@ module AftershipAPI::Model
         self.tracking_key = attributes[:'tracking_key']
       end 
 
-      if attributes.key?(:'tracking_origin_country_region')
-        self.tracking_origin_country_region = attributes[:'tracking_origin_country_region']
-      end 
-
-      if attributes.key?(:'tracking_destination_country_region')
-        self.tracking_destination_country_region = attributes[:'tracking_destination_country_region']
-      end 
-
-      if attributes.key?(:'tracking_state')
-        self.tracking_state = attributes[:'tracking_state']
+      if attributes.key?(:'destination_state')
+        self.destination_state = attributes[:'destination_state']
       end 
 
       if attributes.key?(:'slug_group')
@@ -116,14 +100,12 @@ module AftershipAPI::Model
       {
         :'tracking_number' => :'String',
         :'slug' => :'Array<String>',
-        :'tracking_postal_code' => :'String',
+        :'destination_postal_code' => :'String',
         :'tracking_ship_date' => :'String',
         :'tracking_account_number' => :'String',
         :'tracking_key' => :'String',
-        :'tracking_origin_country_region' => :'String',
-        :'tracking_destination_country_region' => :'String',
-        :'tracking_state' => :'String',
-        :'slug_group' => :'SlugGroupV1',
+        :'destination_state' => :'String',
+        :'slug_group' => :'SlugGroup',
         :'origin_country_region' => :'String',
         :'destination_country_region' => :'String',
       }
@@ -134,13 +116,11 @@ module AftershipAPI::Model
       {
         :'tracking_number' => :'tracking_number',
         :'slug' => :'slug',
-        :'tracking_postal_code' => :'tracking_postal_code',
+        :'destination_postal_code' => :'destination_postal_code',
         :'tracking_ship_date' => :'tracking_ship_date',
         :'tracking_account_number' => :'tracking_account_number',
         :'tracking_key' => :'tracking_key',
-        :'tracking_origin_country_region' => :'tracking_origin_country_region',
-        :'tracking_destination_country_region' => :'tracking_destination_country_region',
-        :'tracking_state' => :'tracking_state',
+        :'destination_state' => :'destination_state',
         :'slug_group' => :'slug_group',
         :'origin_country_region' => :'origin_country_region',
         :'destination_country_region' => :'destination_country_region',

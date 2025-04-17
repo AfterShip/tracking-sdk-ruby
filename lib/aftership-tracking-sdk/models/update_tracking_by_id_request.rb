@@ -111,22 +111,6 @@ module AftershipAPI::Model
     # destination_raw_location?: String;
     attr_accessor :destination_raw_location
 
-    # (Legacy) Replaced by `origin_country_region`. Additional field required by some carriers to retrieve the tracking info. The origin country/region of the shipment. Refer to our article on  for more details.
-    # tracking_origin_country_region?: String;
-    attr_accessor :tracking_origin_country_region
-
-    # (Legacy) Replaced by `destination_country_region`. Additional field required by some carriers to retrieve the tracking info. The destination country/region of the shipment. Refer to our article on  for more details.
-    # tracking_destination_country_region?: String;
-    attr_accessor :tracking_destination_country_region
-
-    # (Legacy) Replaced by `destination_postal_code`. Additional field required by some carriers to retrieve the tracking info. The postal code of the recipient’s address. Refer to our article on  for more details.
-    # tracking_postal_code?: String;
-    attr_accessor :tracking_postal_code
-
-    # (Legacy) Replaced by `destination_state`. Additional field required by some carriers to retrieve the tracking info. The state/province of the recipient’s address. Refer to our article on  for more details.
-    # tracking_state?: String;
-    attr_accessor :tracking_state
-
     # The location_id refers to the place where you fulfilled the items.  - If you provide a location_id, the system will automatically use it as the tracking's origin address. However, passing both location_id and any origin address information simultaneously is not allowed.- Please make sure you add your locations .
     # location_id?: String;
     attr_accessor :location_id
@@ -258,22 +242,6 @@ module AftershipAPI::Model
         self.destination_raw_location = attributes[:'destination_raw_location']
       end 
 
-      if attributes.key?(:'tracking_origin_country_region')
-        self.tracking_origin_country_region = attributes[:'tracking_origin_country_region']
-      end 
-
-      if attributes.key?(:'tracking_destination_country_region')
-        self.tracking_destination_country_region = attributes[:'tracking_destination_country_region']
-      end 
-
-      if attributes.key?(:'tracking_postal_code')
-        self.tracking_postal_code = attributes[:'tracking_postal_code']
-      end 
-
-      if attributes.key?(:'tracking_state')
-        self.tracking_state = attributes[:'tracking_state']
-      end 
-
       if attributes.key?(:'location_id')
         self.location_id = attributes[:'location_id']
       end 
@@ -317,10 +285,6 @@ module AftershipAPI::Model
         :'destination_city' => :'String',
         :'destination_postal_code' => :'String',
         :'destination_raw_location' => :'String',
-        :'tracking_origin_country_region' => :'String',
-        :'tracking_destination_country_region' => :'String',
-        :'tracking_postal_code' => :'String',
-        :'tracking_state' => :'String',
         :'location_id' => :'String',
         :'shipping_method' => :'String',
         :'customers' => :'Array<CustomersUpdateTrackingByIdRequest>',
@@ -357,10 +321,6 @@ module AftershipAPI::Model
         :'destination_city' => :'destination_city',
         :'destination_postal_code' => :'destination_postal_code',
         :'destination_raw_location' => :'destination_raw_location',
-        :'tracking_origin_country_region' => :'tracking_origin_country_region',
-        :'tracking_destination_country_region' => :'tracking_destination_country_region',
-        :'tracking_postal_code' => :'tracking_postal_code',
-        :'tracking_state' => :'tracking_state',
         :'location_id' => :'location_id',
         :'shipping_method' => :'shipping_method',
         :'customers' => :'customers',

@@ -33,7 +33,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings" 
+      local_var_path = "/tracking/2025-04/trackings" 
       method = :'POST'
 
       # query parameters
@@ -85,7 +85,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings/#{id}" 
+      local_var_path = "/tracking/2025-04/trackings/#{id}" 
       method = :'DELETE'
 
       # query parameters
@@ -120,7 +120,7 @@ module AftershipAPI
     # Get tracking results of a single tracking.
     # @param id [String] tracking ID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields List of fields to include in the response. Use comma for multiple values. Fields to include: `tracking_postal_code`, `tracking_ship_date`, `tracking_account_number`, `tracking_key`, `tracking_origin_country_region`, `tracking_destination_country_region`, `tracking_state`, `title`, `order_id`, `tag`, `checkpoints`
+    # @option opts [String] :fields List of fields to include in the response. Use comma for multiple values. Fields to include: `destination_postal_code`, `tracking_ship_date`, `tracking_account_number`, `tracking_key`, `origin_country_region`, `destination_country_region`, `destination_state`, `title`, `order_id`, `tag`, `checkpoints`
     # @option opts [String] :lang Translate checkpoint messages from the carrier’s provided language to the target language. Supported target languages include:</br>&nbsp;&nbsp;&nbsp;&nbsp;- English (en)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French (fr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French Canadian (fr-CA)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Arabic (ar)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Bulgarian (bg)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Catalan (ca)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Croatian (hr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Czech (cs)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Danish (da)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Dutch (nl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Estonian (et)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Filipino (tl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Finnish (fi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- German (de)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Greek (el)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hebrew (he)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hindi (hi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hungarian (hu)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Indonesian (id)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Italian (it)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Japanese (ja)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Korean (ko)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Latvian (lv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Lithuanian (lt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Malay (ms)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Polish (pl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Portuguese (pt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Romanian (ro)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Russian (ru)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Serbian (sr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovak (sk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovenian (sl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Spanish (es)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Swedish (sv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Thai (th)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Turkish (tr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Ukrainian (uk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Vietnamese (vi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Simplified Chinese (zh-Hans)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Traditional Chinese (zh-Hant)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Norwegian (nb)</br>
     # @return [Model::GetTrackingByIdResponse] 
     def get_tracking_by_id(id:, opts: {})
@@ -139,7 +139,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings/#{id}" 
+      local_var_path = "/tracking/2025-04/trackings/#{id}" 
       method = :'GET'
 
       # query parameters
@@ -207,7 +207,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings" 
+      local_var_path = "/tracking/2025-04/trackings" 
       method = :'GET'
 
       # query parameters
@@ -245,7 +245,7 @@ module AftershipAPI
         :query_params => query_params,
         :body => post_body,
         :return_type => return_type,
-        :response_legacy_tag => "",
+        :response_legacy_tag => "trackings",
         :is_paging => true
       )
 
@@ -283,7 +283,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings/#{id}/mark-as-completed" 
+      local_var_path = "/tracking/2025-04/trackings/#{id}/mark-as-completed" 
       method = :'POST'
 
       # query parameters
@@ -335,7 +335,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings/#{id}/retrack" 
+      local_var_path = "/tracking/2025-04/trackings/#{id}/retrack" 
       method = :'POST'
 
       # query parameters
@@ -393,7 +393,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/trackings/#{id}" 
+      local_var_path = "/tracking/2025-04/trackings/#{id}" 
       method = :'PUT'
 
       # query parameters

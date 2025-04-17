@@ -33,7 +33,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/estimated-delivery-date/predict" 
+      local_var_path = "/tracking/2025-04/estimated-delivery-date/predict" 
       method = :'POST'
 
       # query parameters
@@ -87,7 +87,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/estimated-delivery-date/predict-batch" 
+      local_var_path = "/tracking/2025-04/estimated-delivery-date/predict-batch" 
       method = :'POST'
 
       # query parameters

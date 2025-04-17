@@ -33,7 +33,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/couriers/detect" 
+      local_var_path = "/tracking/2025-04/couriers/detect" 
       method = :'POST'
 
       # query parameters
@@ -64,28 +64,32 @@ module AftershipAPI
       return data, status_code, headers
     end 
 
-    # get_all_couriers
-    # Return a list of all couriers.
+    # get_couriers
+    # Return a list of couriers.
     # @param [Hash] opts the optional parameters
-    # @return [Model::GetAllCouriersResponse] 
-    def get_all_couriers(opts: {})
-      data, _status_code, _headers = get_all_couriers_with_http_info(opts: opts)
+    # @option opts [Boolean] :active get user activated couriers
+    # @option opts [String] :slug Unique courier code Use comma for multiple values. (Example: dhl,ups,usps)
+    # @return [Model::GetCouriersResponse] 
+    def get_couriers(opts: {})
+      data, _status_code, _headers = get_couriers_with_http_info(opts: opts)
       data
     end
 
-    def get_all_couriers_with_http_info(opts: {})
+    def get_couriers_with_http_info(opts: {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CourierApi.get_all_couriers ...'
+        @api_client.config.logger.debug 'Calling API: CourierApi.get_couriers ...'
       end
 
 
 
       # resource path
-      local_var_path = "/tracking/2025-01/couriers/all" 
+      local_var_path = "/tracking/2025-04/couriers" 
       method = :'GET'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'active'] = opts[:'active'] if !opts[:'active'].nil?
+      query_params[:'slug'] = opts[:'slug'] if !opts[:'slug'].nil?
       # header parameters
       header_params = opts[:header_params] || {}
 
@@ -93,10 +97,10 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'GetAllCouriersResponse'
+      return_type = 'GetCouriersResponse'
       
       new_options = opts.merge(
-        :operation => :"CourierApi.get_all_couriers",
+        :operation => :"CourierApi.get_couriers",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
@@ -107,55 +111,7 @@ module AftershipAPI
 
       data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CourierApi#get_all_couriers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
-
-    # get_user_couriers
-    # Return a list of .
-    # @param [Hash] opts the optional parameters
-    # @return [Model::GetUserCouriersResponse] 
-    def get_user_couriers(opts: {})
-      data, _status_code, _headers = get_user_couriers_with_http_info(opts: opts)
-      data
-    end
-
-    def get_user_couriers_with_http_info(opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CourierApi.get_user_couriers ...'
-      end
-
-
-
-      # resource path
-      local_var_path = "/tracking/2025-01/couriers" 
-      method = :'GET'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'GetUserCouriersResponse'
-      
-      new_options = opts.merge(
-        :operation => :"CourierApi.get_user_couriers",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CourierApi#get_user_couriers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CourierApi#get_couriers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end 
