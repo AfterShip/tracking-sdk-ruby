@@ -2,7 +2,7 @@
 # Do not edit the class manually.
 
 module AftershipAPI::Model
-  class TagV1
+  class Tag
     PENDING = "Pending".freeze
     INFORECEIVED = "InfoReceived".freeze
     INTRANSIT = "InTransit".freeze
@@ -27,8 +27,8 @@ module AftershipAPI::Model
     # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      return value if TagV1.all_vars.include?(value)
-      raise "Invalid ENUM value #{value} for class #TagV1"
+      return value if Tag.all_vars.include?(value)
+      raise "Invalid ENUM value #{value} for class #Tag"
     end
   end
 end

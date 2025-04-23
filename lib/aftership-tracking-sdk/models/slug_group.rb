@@ -2,7 +2,7 @@
 # Do not edit the class manually.
 
 module AftershipAPI::Model
-  class SlugGroupV1
+  class SlugGroup
     AMAZON_GROUP = "amazon-group".freeze
     FEDEX_GROUP = "fedex-group".freeze
     TOLL_GROUP = "toll-group".freeze
@@ -30,8 +30,8 @@ module AftershipAPI::Model
     # @param value [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      return value if SlugGroupV1.all_vars.include?(value)
-      raise "Invalid ENUM value #{value} for class #SlugGroupV1"
+      return value if SlugGroup.all_vars.include?(value)
+      raise "Invalid ENUM value #{value} for class #SlugGroup"
     end
   end
 end

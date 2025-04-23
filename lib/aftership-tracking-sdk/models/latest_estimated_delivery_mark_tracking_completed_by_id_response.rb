@@ -23,6 +23,10 @@ module AftershipAPI::Model
     # datetime_max?: String;
     attr_accessor :datetime_max
 
+    # Explains the reason for a change to the latest_estimated_delivery. This string will only have a value if:1. The source for the latest EDD is AfterShip EDD. 2. The reason for the change is known.For a comprehensive list of reasons, please refer to this document.
+    # revise_reason?: String;
+    attr_accessor :revise_reason
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -53,6 +57,10 @@ module AftershipAPI::Model
       if attributes.key?(:'datetime_max')
         self.datetime_max = attributes[:'datetime_max']
       end 
+
+      if attributes.key?(:'revise_reason')
+        self.revise_reason = attributes[:'revise_reason']
+      end 
     end
 
     # Attribute type mapping.
@@ -63,6 +71,7 @@ module AftershipAPI::Model
         :'datetime' => :'String',
         :'datetime_min' => :'String',
         :'datetime_max' => :'String',
+        :'revise_reason' => :'String',
       }
     end
 
@@ -74,6 +83,7 @@ module AftershipAPI::Model
         :'datetime' => :'datetime',
         :'datetime_min' => :'datetime_min',
         :'datetime_max' => :'datetime_max',
+        :'revise_reason' => :'revise_reason',
       }
     end
 

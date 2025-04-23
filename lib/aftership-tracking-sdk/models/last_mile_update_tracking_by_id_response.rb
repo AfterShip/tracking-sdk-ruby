@@ -12,7 +12,7 @@ module AftershipAPI::Model
     attr_accessor :slug
 
     # The transit time for the last-mile of a shipment in days. This field is calculated based on whether the handed_over_to_last_mile_carrier or the received_by_last_mile_carrier event is detected by AfterShip. The handover event date is used to calculate the last-mile transit time.- Last mile transit time (in days)= Delivered date - Handover date
-    # transit_time?: String;
+    # transit_time?: Integer;
     attr_accessor :transit_time
 
     # The field contains the official tracking URL of the last-mile carrier, if available. The language parameter of this link is determined by the destination country/region and the language associated with the shipment. If the destination country/region and language data is unavailable, AfterShip will default the language parameter to "US".
@@ -68,7 +68,7 @@ module AftershipAPI::Model
       {
         :'tracking_number' => :'String',
         :'slug' => :'String',
-        :'transit_time' => :'String',
+        :'transit_time' => :'Integer',
         :'courier_tracking_link' => :'String',
         :'courier_redirect_link' => :'String',
         :'source' => :'String',

@@ -7,6 +7,10 @@ module AftershipAPI::Model
     # reason: String;
     attr_accessor :reason
 
+    # The actual occurrence time of the marked tracking status.The field supports the following formats: - YYYY-MM-DD- YYYY-MM-DDTHH:mm:ss- YYYY-MM-DDTHH:mm:ssZ
+    # event_datetime?: String;
+    attr_accessor :event_datetime
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -21,12 +25,17 @@ module AftershipAPI::Model
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
       end 
+
+      if attributes.key?(:'event_datetime')
+        self.event_datetime = attributes[:'event_datetime']
+      end 
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
         :'reason' => :'String',
+        :'event_datetime' => :'String',
       }
     end
 
@@ -34,6 +43,7 @@ module AftershipAPI::Model
     def self.attribute_map
       {
         :'reason' => :'reason',
+        :'event_datetime' => :'event_datetime',
       }
     end
 
