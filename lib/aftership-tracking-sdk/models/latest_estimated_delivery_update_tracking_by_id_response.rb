@@ -23,7 +23,7 @@ module AftershipAPI::Model
     # datetime_max?: String;
     attr_accessor :datetime_max
 
-    # Explains the reason for a change to the latest_estimated_delivery. This string will only have a value if:1. The source for the latest EDD is AfterShip EDD. 2. The reason for the change is known.For a comprehensive list of reasons, please refer to this document.
+    # Explains the reason for a change to the latest_estimated_delivery. This string will only have a value if:1. The source for the latest EDD is AfterShip EDD. 2. The reason for the change is known.For a comprehensive list of reasons, please refer to .
     # revise_reason?: String;
     attr_accessor :revise_reason
 
