@@ -33,7 +33,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings" 
+      local_var_path = "/tracking/2025-07/trackings" 
       method = :'POST'
 
       # query parameters
@@ -85,7 +85,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings/#{id}" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}" 
       method = :'DELETE'
 
       # query parameters
@@ -139,7 +139,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings/#{id}" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}" 
       method = :'GET'
 
       # query parameters
@@ -207,7 +207,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings" 
+      local_var_path = "/tracking/2025-07/trackings" 
       method = :'GET'
 
       # query parameters
@@ -283,7 +283,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings/#{id}/mark-as-completed" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}/mark-as-completed" 
       method = :'POST'
 
       # query parameters
@@ -335,7 +335,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings/#{id}/retrack" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}/retrack" 
       method = :'POST'
 
       # query parameters
@@ -393,7 +393,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-04/trackings/#{id}" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}" 
       method = :'PUT'
 
       # query parameters
