@@ -2,9 +2,8 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class MarkTrackingCompletedByIdRequest
-
     # One of `DELIVERED`, `LOST` or `RETURNED_TO_SENDER`.- Mark the tracking as completed with `DELIVERED`. The tag of the tracking will be updated to `Delivered` and the subtag will be updated to `Delivered_001`.- Mark the tracking as completed with `LOST`. The tag of the tracking will be updated to `Exception` and the subtag will be updated to `Exception_013`.- Mark the tracking as completed with `RETURNED_TO_SENDER`. The tag of the tracking will be updated to `Exception` and the subtag will be updated to `Exception_011`.
-    # reason: String;
+    # reason: MarkTrackingCompletedByIdRequestReason;
     attr_accessor :reason
 
     # The actual occurrence time of the marked tracking status.The field supports the following formats: - YYYY-MM-DD- YYYY-MM-DDTHH:mm:ss- YYYY-MM-DDTHH:mm:ssZ
@@ -24,17 +23,17 @@ module AftershipAPI::Model
 
       if attributes.key?(:'reason')
         self.reason = attributes[:'reason']
-      end 
+      end
 
       if attributes.key?(:'event_datetime')
         self.event_datetime = attributes[:'event_datetime']
-      end 
+      end
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'reason' => :'String',
+        :'reason' => :'MarkTrackingCompletedByIdRequestReason',
         :'event_datetime' => :'String',
       }
     end
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

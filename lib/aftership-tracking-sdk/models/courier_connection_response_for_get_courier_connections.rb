@@ -2,13 +2,12 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CourierConnectionResponseForGetCourierConnections
-
     # Meta data
     # meta: Meta;
     attr_accessor :meta
 
     # 
-    # data?: DataCourierConnectionResponseForGetCourierConnections;
+    # data?: CourierConnectionResponseForGetCourierConnectionsData;
     attr_accessor :data
 
     # Initializes the object
@@ -24,18 +23,18 @@ module AftershipAPI::Model
 
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
-      end 
+      end
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
-      end 
+      end
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
         :'meta' => :'Meta',
-        :'data' => :'DataCourierConnectionResponseForGetCourierConnections',
+        :'data' => :'CourierConnectionResponseForGetCourierConnectionsData',
       }
     end
 
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

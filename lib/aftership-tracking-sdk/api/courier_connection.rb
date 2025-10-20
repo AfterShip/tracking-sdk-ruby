@@ -3,64 +3,12 @@
 require 'cgi'
 
 module AftershipAPI
-  class CourierConnectionApi 
+  class CourierConnectionApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-
-    # delete_courier_connections_by_id
-    # Delete a courier connection.
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Model::DeleteCourierConnectionsByIdResponse] 
-    def delete_courier_connections_by_id(id:, opts: {})
-      data, _status_code, _headers = delete_courier_connections_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def delete_courier_connections_by_id_with_http_info(id:, opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CourierConnectionApi.delete_courier_connections_by_id ...'
-      end
-
-      if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
-      end
-
-
-      # resource path
-      local_var_path = "/tracking/2025-07/courier-connections/#{id}" 
-      method = :'DELETE'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'DeleteCourierConnectionsByIdResponse'
-      
-      new_options = opts.merge(
-        :operation => :"CourierConnectionApi.delete_courier_connections_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CourierConnectionApi#delete_courier_connections_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
 
     # get_courier_connections
     # Get courier connection results of multiple courier connections.
@@ -68,21 +16,15 @@ module AftershipAPI
     # @option opts [String] :courier_slug Unique courier code.(Example: dhl-api)
     # @option opts [String] :cursor A string representing the cursor value for the current page of results.
     # @option opts [String] :limit Number of courier connections each page contain. (Default: 100, Max: 200)
-    # @return [Model::GetCourierConnectionsResponse] 
+    # @return [Model::GetCourierConnectionsResponse]
     def get_courier_connections(opts: {})
-      data, _status_code, _headers = get_courier_connections_with_http_info(opts: opts)
-      data
-    end
-
-    def get_courier_connections_with_http_info(opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CourierConnectionApi.get_courier_connections ...'
       end
 
 
-
       # resource path
-      local_var_path = "/tracking/2025-07/courier-connections" 
+      local_var_path = "/tracking/2025-07/courier-connections"
       method = :'GET'
 
       # query parameters
@@ -97,101 +39,42 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'GetCourierConnectionsResponse'
-      
+      return_type = 'GetCourierConnectionsResponseData'
+
       new_options = opts.merge(
         :operation => :"CourierConnectionApi.get_courier_connections",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "courier_connections",
-        :is_paging => true
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CourierConnectionApi#get_courier_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
 
-    # get_courier_connections_by_id
-    # Get courier connection results of a single courier connection.
-    # @param id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Model::GetCourierConnectionsByIdResponse] 
-    def get_courier_connections_by_id(id:, opts: {})
-      data, _status_code, _headers = get_courier_connections_by_id_with_http_info(id:id, opts: opts)
-      data
+      resp = Model::GetCourierConnectionsResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
     end
-
-    def get_courier_connections_by_id_with_http_info(id:, opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CourierConnectionApi.get_courier_connections_by_id ...'
-      end
-
-      if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
-      end
-
-
-      # resource path
-      local_var_path = "/tracking/2025-07/courier-connections/#{id}" 
-      method = :'GET'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'GetCourierConnectionsByIdResponse'
-      
-      new_options = opts.merge(
-        :operation => :"CourierConnectionApi.get_courier_connections_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CourierConnectionApi#get_courier_connections_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
 
     # post_courier_connections
     # 
 
-    # @param body [Model::PostCourierConnectionsRequest] 
+    # @param body [Model::PostCourierConnectionsRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::PostCourierConnectionsResponse] 
-    def post_courier_connections(body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::PostCourierConnectionsResponse]
+    def post_courier_connections(body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = post_courier_connections_with_http_info(opts: opts)
-      data
-    end
-
-    def post_courier_connections_with_http_info(opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CourierConnectionApi.post_courier_connections ...'
       end
 
 
-
       # resource path
-      local_var_path = "/tracking/2025-07/courier-connections" 
+      local_var_path = "/tracking/2025-07/courier-connections"
       method = :'POST'
 
       # query parameters
@@ -203,53 +86,94 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'PostCourierConnectionsResponse'
-      
+      return_type = 'CourierConnection'
+
       new_options = opts.merge(
         :operation => :"CourierConnectionApi.post_courier_connections",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CourierConnectionApi#post_courier_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::PostCourierConnectionsResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # get_courier_connections_by_id
+    # Get courier connection results of a single courier connection.
+    # @param id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Model::GetCourierConnectionsByIdResponse]
+    def get_courier_connections_by_id(id:, opts: {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CourierConnectionApi.get_courier_connections_by_id ...'
+      end
+      if id.nil? or id.to_s == ''
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
+      end
+
+
+      # resource path
+      local_var_path = "/tracking/2025-07/courier-connections/#{id}"
+      method = :'GET'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # http body (model)
+      post_body = opts[:body]
+
+      # return_type
+      return_type = 'CourierConnection'
+
+      new_options = opts.merge(
+        :operation => :"CourierConnectionApi.get_courier_connections_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :body => post_body,
+        :return_type => return_type
+      )
+
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CourierConnectionApi#get_courier_connections_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+
+      resp = Model::GetCourierConnectionsByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
 
     # put_courier_connections_by_id
     # Update a courier connection.
     # @param id [String] 
 
-    # @param body [Model::PutCourierConnectionsByIdRequest] 
+    # @param body [Model::PutCourierConnectionsByIdRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::PutCourierConnectionsByIdResponse] 
-    def put_courier_connections_by_id(id:, body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::PutCourierConnectionsByIdResponse]
+    def put_courier_connections_by_id(id:, body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = put_courier_connections_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def put_courier_connections_by_id_with_http_info(id:, opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CourierConnectionApi.put_courier_connections_by_id ...'
       end
-
       if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
       end
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/courier-connections/#{id}" 
+      local_var_path = "/tracking/2025-07/courier-connections/#{id}"
       method = :'PATCH'
 
       # query parameters
@@ -261,23 +185,73 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'PutCourierConnectionsByIdResponse'
-      
+      return_type = 'CourierConnection'
+
       new_options = opts.merge(
         :operation => :"CourierConnectionApi.put_courier_connections_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CourierConnectionApi#put_courier_connections_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::PutCourierConnectionsByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # delete_courier_connections_by_id
+    # Delete a courier connection.
+    # @param id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Model::DeleteCourierConnectionsByIdResponse]
+    def delete_courier_connections_by_id(id:, opts: {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CourierConnectionApi.delete_courier_connections_by_id ...'
+      end
+      if id.nil? or id.to_s == ''
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
+      end
+
+
+      # resource path
+      local_var_path = "/tracking/2025-07/courier-connections/#{id}"
+      method = :'DELETE'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # http body (model)
+      post_body = opts[:body]
+
+      # return_type
+      return_type = 'CourierConnection'
+
+      new_options = opts.merge(
+        :operation => :"CourierConnectionApi.delete_courier_connections_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :body => post_body,
+        :return_type => return_type
+      )
+
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CourierConnectionApi#delete_courier_connections_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+
+      resp = Model::DeleteCourierConnectionsByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
   end
 end

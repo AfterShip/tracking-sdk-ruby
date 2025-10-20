@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class CredentialField
-
     # The display name of the credential field that users must provide when creating a carrier connection.
     # name?: String;
     attr_accessor :name
@@ -28,15 +27,15 @@ module AftershipAPI::Model
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end 
+      end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      end 
+      end
 
       if attributes.key?(:'required')
         self.required = attributes[:'required']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -170,4 +169,3 @@ module AftershipAPI::Model
     end
   end
 end
-

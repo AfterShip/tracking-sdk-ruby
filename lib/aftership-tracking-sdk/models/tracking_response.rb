@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class TrackingResponse
-
     # Meta data
     # meta: Meta;
     attr_accessor :meta
@@ -24,11 +23,11 @@ module AftershipAPI::Model
 
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
-      end 
+      end
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

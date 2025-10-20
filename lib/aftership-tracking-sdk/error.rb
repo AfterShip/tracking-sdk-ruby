@@ -3,14 +3,12 @@
 require 'json'
 
 module AftershipAPI
-  REQUEST_ERROR = 'REQUEST_ERROR'
-
-  # Common AfterShipError
-  INVALID_API_KEY = 'INVALID_API_KEY'.freeze
-  INVALID_OPTION = 'INVALID_OPTION'.freeze
-  RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED'.freeze
+  INVALID_API_KEY = "INVALID_API_KEY".freeze
+  INVALID_OPTION = "INVALID_OPTION".freeze
+  BAD_REQUEST = "BAD_REQUEST".freeze
+  RATE_LIMIT_EXCEED = "RATE_LIMIT_EXCEED".freeze
   TIMED_OUT = "TIMED_OUT".freeze
-
+  UNKNOWN_ERROR = "UNKNOWN_ERROR".freeze
   INVALID_REQUEST = "INVALID_REQUEST".freeze
   INVALID_JSON = "INVALID_JSON".freeze
   TRACKING_ALREADY_EXIST = "TRACKING_ALREADY_EXIST".freeze
@@ -24,7 +22,7 @@ module AftershipAPI
   MISSING_OR_INVALID_REQUIRED_FIELD = "MISSING_OR_INVALID_REQUIRED_FIELD".freeze
   BAD_COURIER = "BAD_COURIER".freeze
   INACTIVE_RETRACK_NOT_ALLOWED = "INACTIVE_RETRACK_NOT_ALLOWED".freeze
-  NOTIFICATION_REUQIRED = "NOTIFICATION_REUQIRED".freeze
+  NOTIFICATION_REQUIRED = "NOTIFICATION_REQUIRED".freeze
   ID_INVALID = "ID_INVALID".freeze
   RETRACK_ONCE_ALLOWED = "RETRACK_ONCE_ALLOWED".freeze
   TRACKING_NUMBER_FORMAT_INVALID = "TRACKING_NUMBER_FORMAT_INVALID".freeze
@@ -49,7 +47,7 @@ module AftershipAPI
     4011 => MISSING_OR_INVALID_REQUIRED_FIELD,
     4012 => BAD_COURIER,
     4013 => INACTIVE_RETRACK_NOT_ALLOWED,
-    4014 => NOTIFICATION_REUQIRED,
+    4014 => NOTIFICATION_REQUIRED,
     4015 => ID_INVALID,
     4016 => RETRACK_ONCE_ALLOWED,
     4017 => TRACKING_NUMBER_FORMAT_INVALID,
@@ -81,11 +79,11 @@ module AftershipAPI
         end
 
         response_body = JSON.parse(arg[:response_body], :symbolize_names => true) rescue nil
-        @message = REQUEST_ERROR
+        @message = UNKNOWN_ERROR
         if response_body && response_body[:meta] && response_body[:meta][:code]
           @meta_code = response_body[:meta][:code]
-          @error_code = ERROR_MAP[@meta_code] || REQUEST_ERROR
-          @message = response_body[:meta][:message] || REQUEST_ERROR
+          @error_code = ERROR_MAP[@meta_code] || ((arg[:status_code] || arg['status_code'])&.between?(400, 499) ? BAD_REQUEST : UNKNOWN_ERROR)
+          @message = response_body[:meta][:message] || UNKNOWN_ERROR
         end
         arg.each do |k, v|
           instance_variable_set "@#{k}", v
@@ -115,11 +113,5 @@ module AftershipAPI
 
       msg
     end
-  end
-
-  class InvalidOptionError < StandardError
-  end
-
-  class InvalidParamError < StandardError
   end
 end

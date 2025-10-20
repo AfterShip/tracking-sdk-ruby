@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class PutCourierConnectionsByIdRequest
-
     # It refers to the authentication details required for each specific carrier details required for each specific carrier (such as API keys, username, password, etc.) that the user must provide to establish a carrier connection. The content varies by carrier.
     # credentials: Object;
     attr_accessor :credentials
@@ -20,7 +19,7 @@ module AftershipAPI::Model
 
       if attributes.key?(:'credentials')
         self.credentials = attributes[:'credentials']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

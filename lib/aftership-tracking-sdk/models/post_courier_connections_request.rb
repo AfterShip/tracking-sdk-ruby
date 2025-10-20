@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class PostCourierConnectionsRequest
-
     # Unique code of courier. Get the slugs from .
     # courier_slug: String;
     attr_accessor :courier_slug
@@ -24,11 +23,11 @@ module AftershipAPI::Model
 
       if attributes.key?(:'courier_slug')
         self.courier_slug = attributes[:'courier_slug']
-      end 
+      end
 
       if attributes.key?(:'credentials')
         self.credentials = attributes[:'credentials']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -160,4 +159,3 @@ module AftershipAPI::Model
     end
   end
 end
-

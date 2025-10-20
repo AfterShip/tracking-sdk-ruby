@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Checkpoint
-
     # The date and time of the checkpoint event was added to AfterShip. It uses the format `YYYY-MM-DDTHH:mm:ssZ` for the timezone GMT +0.
     # created_at?: String;
     attr_accessor :created_at
@@ -32,7 +31,7 @@ module AftershipAPI::Model
     attr_accessor :zip
 
     # The latitude and longitude coordinates indicate the precise location of the shipments that are currently in transit.
-    # coordinate?: CoordinateCheckpoint;
+    # coordinate?: CheckpointCoordinate;
     attr_accessor :coordinate
 
     # Country/Region ISO Alpha-3 (three letters) of the checkpoint
@@ -64,11 +63,11 @@ module AftershipAPI::Model
     attr_accessor :raw_tag
 
     # The array provides details about specific event(s) that occurred  to a shipment, such as "returned_to_sender". You can find the full list of events and reasons </span>- The events' value for the same checkpoint message is subject to change as we consistently strive to enhance the performance of this feature.
-    # events?: EventsCheckpoint[];
+    # events?: CheckpointEvents[];
     attr_accessor :events
 
     # The source of the checkpoint, which can either be from the carrier or when the user marks the tracking as completed.
-    # source?: String;
+    # source?: CheckpointSource;
     attr_accessor :source
 
     # Initializes the object
@@ -84,71 +83,71 @@ module AftershipAPI::Model
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
-      end 
+      end
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      end 
+      end
 
       if attributes.key?(:'checkpoint_time')
         self.checkpoint_time = attributes[:'checkpoint_time']
-      end 
+      end
 
       if attributes.key?(:'location')
         self.location = attributes[:'location']
-      end 
+      end
 
       if attributes.key?(:'city')
         self.city = attributes[:'city']
-      end 
+      end
 
       if attributes.key?(:'state')
         self.state = attributes[:'state']
-      end 
+      end
 
       if attributes.key?(:'zip')
         self.zip = attributes[:'zip']
-      end 
+      end
 
       if attributes.key?(:'coordinate')
         self.coordinate = attributes[:'coordinate']
-      end 
+      end
 
       if attributes.key?(:'country_region')
         self.country_region = attributes[:'country_region']
-      end 
+      end
 
       if attributes.key?(:'country_region_name')
         self.country_region_name = attributes[:'country_region_name']
-      end 
+      end
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
-      end 
+      end
 
       if attributes.key?(:'tag')
         self.tag = attributes[:'tag']
-      end 
+      end
 
       if attributes.key?(:'subtag')
         self.subtag = attributes[:'subtag']
-      end 
+      end
 
       if attributes.key?(:'subtag_message')
         self.subtag_message = attributes[:'subtag_message']
-      end 
+      end
 
       if attributes.key?(:'raw_tag')
         self.raw_tag = attributes[:'raw_tag']
-      end 
+      end
 
       if attributes.key?(:'events')
         self.events = attributes[:'events']
-      end 
+      end
 
       if attributes.key?(:'source')
         self.source = attributes[:'source']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -161,7 +160,7 @@ module AftershipAPI::Model
         :'city' => :'String',
         :'state' => :'String',
         :'zip' => :'String',
-        :'coordinate' => :'CoordinateCheckpoint',
+        :'coordinate' => :'CheckpointCoordinate',
         :'country_region' => :'String',
         :'country_region_name' => :'String',
         :'message' => :'String',
@@ -169,8 +168,8 @@ module AftershipAPI::Model
         :'subtag' => :'String',
         :'subtag_message' => :'String',
         :'raw_tag' => :'String',
-        :'events' => :'Array<EventsCheckpoint>',
-        :'source' => :'String',
+        :'events' => :'Array<CheckpointEvents>',
+        :'source' => :'CheckpointSource',
       }
     end
 
@@ -310,4 +309,3 @@ module AftershipAPI::Model
     end
   end
 end
-

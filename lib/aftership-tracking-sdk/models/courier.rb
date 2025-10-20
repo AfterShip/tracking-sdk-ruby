@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Courier
-
     # Unique code of courier. Get the slugs from .
     # slug?: String;
     attr_accessor :slug
@@ -24,11 +23,11 @@ module AftershipAPI::Model
     attr_accessor :web_url
 
     # The extra fields need for tracking, such as `tracking_account_number`, `tracking_postal_code`, `tracking_ship_date`, `tracking_key`, `tracking_destination_country_region`
-    # required_fields?: String[];
+    # required_fields?: AdditionalFields[];
     attr_accessor :required_fields
 
     # The extra fields which are optional for tracking. Basically it's the same as required_fields, but the difference is that only some of the tracking numbers require these fields.
-    # optional_fields?: String[];
+    # optional_fields?: AdditionalFields[];
     attr_accessor :optional_fields
 
     # Default language of tracking results
@@ -44,7 +43,7 @@ module AftershipAPI::Model
     attr_accessor :service_from_country_regions
 
     # Refers to the authentication details required for each specific carrier (such as API keys, username, password, etc.) that the user must provide to create a carrier connection. The content varies by carrier.
-    # credentials?: CredentialsCourier;
+    # credentials?: CourierCredentials;
     attr_accessor :credentials
 
     # Initializes the object
@@ -60,47 +59,47 @@ module AftershipAPI::Model
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      end 
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end 
+      end
 
       if attributes.key?(:'phone')
         self.phone = attributes[:'phone']
-      end 
+      end
 
       if attributes.key?(:'other_name')
         self.other_name = attributes[:'other_name']
-      end 
+      end
 
       if attributes.key?(:'web_url')
         self.web_url = attributes[:'web_url']
-      end 
+      end
 
       if attributes.key?(:'required_fields')
         self.required_fields = attributes[:'required_fields']
-      end 
+      end
 
       if attributes.key?(:'optional_fields')
         self.optional_fields = attributes[:'optional_fields']
-      end 
+      end
 
       if attributes.key?(:'default_language')
         self.default_language = attributes[:'default_language']
-      end 
+      end
 
       if attributes.key?(:'support_languages')
         self.support_languages = attributes[:'support_languages']
-      end 
+      end
 
       if attributes.key?(:'service_from_country_regions')
         self.service_from_country_regions = attributes[:'service_from_country_regions']
-      end 
+      end
 
       if attributes.key?(:'credentials')
         self.credentials = attributes[:'credentials']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -111,12 +110,12 @@ module AftershipAPI::Model
         :'phone' => :'String',
         :'other_name' => :'String',
         :'web_url' => :'String',
-        :'required_fields' => :'Array<String>',
-        :'optional_fields' => :'Array<String>',
+        :'required_fields' => :'Array<AdditionalFields>',
+        :'optional_fields' => :'Array<AdditionalFields>',
         :'default_language' => :'String',
         :'support_languages' => :'Array<String>',
         :'service_from_country_regions' => :'Array<String>',
-        :'credentials' => :'CredentialsCourier',
+        :'credentials' => :'CourierCredentials',
       }
     end
 
@@ -250,4 +249,3 @@ module AftershipAPI::Model
     end
   end
 end
-
