@@ -31,7 +31,7 @@ module AftershipAPI::Model
     attr_accessor :destination_state
 
     # Slug group is a group of slugs which belong to same courier. For example, when you inpit "fedex-group" as slug_group, AfterShip will detect the tracking with "fedex-uk", "fedex-fims", and other slugs which belong to "fedex". It cannot be used with slug at the same time. (
-    # slug_group?: SlugGroup;
+    # slug_group?: String;
     attr_accessor :slug_group
 
     # Enter .
@@ -104,7 +104,7 @@ module AftershipAPI::Model
         :'tracking_account_number' => :'String',
         :'tracking_key' => :'String',
         :'destination_state' => :'String',
-        :'slug_group' => :'SlugGroup',
+        :'slug_group' => :'String',
         :'origin_country_region' => :'String',
         :'destination_country_region' => :'String',
       }
