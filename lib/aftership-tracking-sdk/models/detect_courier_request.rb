@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class DetectCourierRequest
-
     # Tracking number of a shipment.
     # tracking_number: String;
     attr_accessor :tracking_number
@@ -32,7 +31,7 @@ module AftershipAPI::Model
     attr_accessor :destination_state
 
     # Slug group is a group of slugs which belong to same courier. For example, when you inpit "fedex-group" as slug_group, AfterShip will detect the tracking with "fedex-uk", "fedex-fims", and other slugs which belong to "fedex". It cannot be used with slug at the same time. (
-    # slug_group?: SlugGroup;
+    # slug_group?: String;
     attr_accessor :slug_group
 
     # Enter .
@@ -56,43 +55,43 @@ module AftershipAPI::Model
 
       if attributes.key?(:'tracking_number')
         self.tracking_number = attributes[:'tracking_number']
-      end 
+      end
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      end 
+      end
 
       if attributes.key?(:'destination_postal_code')
         self.destination_postal_code = attributes[:'destination_postal_code']
-      end 
+      end
 
       if attributes.key?(:'tracking_ship_date')
         self.tracking_ship_date = attributes[:'tracking_ship_date']
-      end 
+      end
 
       if attributes.key?(:'tracking_account_number')
         self.tracking_account_number = attributes[:'tracking_account_number']
-      end 
+      end
 
       if attributes.key?(:'tracking_key')
         self.tracking_key = attributes[:'tracking_key']
-      end 
+      end
 
       if attributes.key?(:'destination_state')
         self.destination_state = attributes[:'destination_state']
-      end 
+      end
 
       if attributes.key?(:'slug_group')
         self.slug_group = attributes[:'slug_group']
-      end 
+      end
 
       if attributes.key?(:'origin_country_region')
         self.origin_country_region = attributes[:'origin_country_region']
-      end 
+      end
 
       if attributes.key?(:'destination_country_region')
         self.destination_country_region = attributes[:'destination_country_region']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -105,7 +104,7 @@ module AftershipAPI::Model
         :'tracking_account_number' => :'String',
         :'tracking_key' => :'String',
         :'destination_state' => :'String',
-        :'slug_group' => :'SlugGroup',
+        :'slug_group' => :'String',
         :'origin_country_region' => :'String',
         :'destination_country_region' => :'String',
       }
@@ -240,4 +239,3 @@ module AftershipAPI::Model
     end
   end
 end
-

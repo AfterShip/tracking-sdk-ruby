@@ -44,7 +44,7 @@ module AftershipAPI
       begin
         call_api_internal(http_method, path, opts)
       rescue ApiError => e
-        if retries > 0 && (e.error_code == AftershipAPI::TIMED_OUT || e.status_code >= 500 )
+        if retries > 0 && (e.error_code == AftershipAPI::TIMED_OUT || e.status_code >= 500)
           retries -= 1
           delay_with_jitter
           retry
@@ -61,6 +61,7 @@ module AftershipAPI
     end
 
     def call_api_internal(http_method, path, opts = {})
+      path = path.split('/').map { |part| URI.encode_www_form_component(part) }.join('/')
       request = build_request(http_method, path, opts)
       tempfile = download_file(request) if opts[:return_type] == 'File'
       response = request.run
@@ -89,7 +90,7 @@ module AftershipAPI
       if opts[:return_type] == 'File'
         data = tempfile
       elsif opts[:return_type]
-        data = deserialize(response, opts[:return_type], opts[:response_legacy_tag], opts[:is_paging])
+        data = deserialize(response, opts[:return_type])
       else
         data = nil
       end
@@ -109,12 +110,10 @@ module AftershipAPI
       url = build_request_url(path, opts)
       http_method = http_method.to_sym.downcase
 
-      header_params = @default_headers.merge(opts[:header_params] || {}).merge({'as-api-key' => config.as_api_key})
+      header_params = @default_headers.merge(opts[:header_params] || {}).merge({ 'as-api-key' => config.as_api_key })
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
       follow_location = opts[:follow_location] || true
-
-      header_params['date'] = Time.now.httpdate
 
       req_opts = {
         :method => http_method,
@@ -139,17 +138,19 @@ module AftershipAPI
 
       if @config.authentication_type == AUTHENTICATION_TYPE_AES || @config.authentication_type == AUTHENTICATION_TYPE_RSA
         signature_header = @config.authentication_type == AUTHENTICATION_TYPE_AES ? "as-signature-hmac-sha256" : "as-signature-rsa-sha256"
+        date = Time.now.httpdate
         req_opts[:headers][signature_header] = SignString.sign({
           'method' => http_method,
           'headers' => req_opts[:headers],
           'body' => req_opts[:body] || '',
           'content_type' => header_params['Content-Type'],
-          'date' => header_params['date'],
+          'date' => date,
           'url' => url,
           'query' => query_params,
           'auth_type' => @config.authentication_type,
           'secret' => @config.as_api_secret
         })
+        header_params['date'] = date
       end
 
       Typhoeus::Request.new(url, req_opts)
@@ -242,9 +243,7 @@ module AftershipAPI
     #
     # @param [Response] response HTTP response
     # @param [String] return_type some examples: "User", "Array<User>", "Hash<String, Integer>"
-    # @param [String] response_legacy_tag {tracking: Tracking{}} where response_legacy_tag is "tracking"
-    # @param [Boolean] is_paging
-    def deserialize(response, return_type, response_legacy_tag, is_paging)
+    def deserialize(response, return_type)
       body = response.body
       return nil if body.nil? || body.empty?
 
@@ -266,31 +265,7 @@ module AftershipAPI
         end
       end
 
-      convert_to_type handle_data(response_legacy_tag, is_paging, data), return_type
-    end
-
-    def handle_data(response_legacy_tag, is_paging, data) 
-      if response_legacy_tag.to_s != "" && !is_paging
-        return data[:data][response_legacy_tag.to_sym]
-      end
-
-      if response_legacy_tag.to_s != "" && is_paging
-        pagination = {
-          page: data[:data][:page],
-          limit: data[:data][:limit],
-          has_next_page: data[:data][:has_next_page],
-        }
-
-        total = data[:data][:total]
-        total = data[:data][:count] if total.nil?
-        pagination[:total] = total  
-        return {
-          pagination: pagination,
-          response_legacy_tag.to_sym => data[:data][response_legacy_tag.to_sym]
-        }
-      end
-
-      data[:data]
+      convert_to_type data[:data], return_type
     end
 
     # Convert data to the given return type.

@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class Meta
-
     # meta code
     # code: Integer;
     attr_accessor :code
@@ -12,7 +11,7 @@ module AftershipAPI::Model
     attr_accessor :message
 
     # error type, only exist if the response status is not 2xx
-    # type?: String;
+    # type?: MetaType;
     attr_accessor :type
 
     # Initializes the object
@@ -28,15 +27,15 @@ module AftershipAPI::Model
 
       if attributes.key?(:'code')
         self.code = attributes[:'code']
-      end 
+      end
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
-      end 
+      end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -44,7 +43,7 @@ module AftershipAPI::Model
       {
         :'code' => :'Integer',
         :'message' => :'String',
-        :'type' => :'String',
+        :'type' => :'MetaType',
       }
     end
 
@@ -170,4 +169,3 @@ module AftershipAPI::Model
     end
   end
 end
-

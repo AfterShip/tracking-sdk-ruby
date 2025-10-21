@@ -3,174 +3,12 @@
 require 'cgi'
 
 module AftershipAPI
-  class TrackingApi 
+  class TrackingApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-
-    # create_tracking
-    # Create a tracking.<div style="visibility:hidden; height: 0"></div>
-
-    # @param body [Model::CreateTrackingRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Model::CreateTrackingResponse] 
-    def create_tracking(body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
-      opts[:body] = body
-      data, _status_code, _headers = create_tracking_with_http_info(opts: opts)
-      data
-    end
-
-    def create_tracking_with_http_info(opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TrackingApi.create_tracking ...'
-      end
-
-
-
-      # resource path
-      local_var_path = "/tracking/2025-07/trackings" 
-      method = :'POST'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'CreateTrackingResponse'
-      
-      new_options = opts.merge(
-        :operation => :"TrackingApi.create_tracking",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TrackingApi#create_tracking\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
-
-    # delete_tracking_by_id
-    # Delete a tracking.
-    # @param id [String] tracking ID
-    # @param [Hash] opts the optional parameters
-    # @return [Model::DeleteTrackingByIdResponse] 
-    def delete_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = delete_tracking_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def delete_tracking_by_id_with_http_info(id:, opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TrackingApi.delete_tracking_by_id ...'
-      end
-
-      if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
-      end
-
-
-      # resource path
-      local_var_path = "/tracking/2025-07/trackings/#{id}" 
-      method = :'DELETE'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'DeleteTrackingByIdResponse'
-      
-      new_options = opts.merge(
-        :operation => :"TrackingApi.delete_tracking_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TrackingApi#delete_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
-
-    # get_tracking_by_id
-    # Get tracking results of a single tracking.
-    # @param id [String] tracking ID
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields List of fields to include in the response. Use comma for multiple values. Fields to include: `destination_postal_code`, `tracking_ship_date`, `tracking_account_number`, `tracking_key`, `origin_country_region`, `destination_country_region`, `destination_state`, `title`, `order_id`, `tag`, `checkpoints`
-    # @option opts [String] :lang Translate checkpoint messages from the carrier’s provided language to the target language. Supported target languages include:</br>&nbsp;&nbsp;&nbsp;&nbsp;- English (en)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French (fr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French Canadian (fr-CA)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Arabic (ar)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Bulgarian (bg)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Catalan (ca)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Croatian (hr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Czech (cs)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Danish (da)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Dutch (nl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Estonian (et)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Filipino (tl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Finnish (fi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- German (de)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Greek (el)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hebrew (he)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hindi (hi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hungarian (hu)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Indonesian (id)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Italian (it)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Japanese (ja)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Korean (ko)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Latvian (lv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Lithuanian (lt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Malay (ms)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Polish (pl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Portuguese (pt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Romanian (ro)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Russian (ru)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Serbian (sr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovak (sk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovenian (sl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Spanish (es)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Swedish (sv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Thai (th)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Turkish (tr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Ukrainian (uk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Vietnamese (vi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Simplified Chinese (zh-Hans)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Traditional Chinese (zh-Hant)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Norwegian (nb)</br>
-    # @return [Model::GetTrackingByIdResponse] 
-    def get_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = get_tracking_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def get_tracking_by_id_with_http_info(id:, opts: {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TrackingApi.get_tracking_by_id ...'
-      end
-
-      if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
-      end
-
-
-      # resource path
-      local_var_path = "/tracking/2025-07/trackings/#{id}" 
-      method = :'GET'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
-      query_params[:'lang'] = opts[:'lang'] if !opts[:'lang'].nil?
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # http body (model)
-      post_body = opts[:body]
-
-      # return_type
-      return_type = 'GetTrackingByIdResponse'
-      
-      new_options = opts.merge(
-        :operation => :"TrackingApi.get_tracking_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
-      )
-
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TrackingApi#get_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end 
 
     # get_trackings
     # Get tracking results of multiple trackings.<div style="visibility:hidden; height: 0"></div>
@@ -193,21 +31,15 @@ module AftershipAPI
     # @option opts [String] :courier_destination_country_region Destination country/region of trackings returned by courier. Use ISO Alpha-3 (three letters). Use comma for multiple values. (Example: USA,HKG)
     # @option opts [String] :shipment_tags Tags you added to your shipments to help categorize and filter them easily. Use a comma to separate multiple values (Example: a,b)
     # @option opts [String] :order_id A globally-unique identifier for the order. Use comma for multiple values.(Example: 6845a095a27a4caeb27487806f058add,4845a095a27a4caeb27487806f058abc)
-    # @return [Model::GetTrackingsResponse] 
+    # @return [Model::GetTrackingsResponse]
     def get_trackings(opts: {})
-      data, _status_code, _headers = get_trackings_with_http_info(opts: opts)
-      data
-    end
-
-    def get_trackings_with_http_info(opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_trackings ...'
       end
 
 
-
       # resource path
-      local_var_path = "/tracking/2025-07/trackings" 
+      local_var_path = "/tracking/2025-07/trackings"
       method = :'GET'
 
       # query parameters
@@ -237,53 +69,42 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'GetTrackingsResponse'
-      
+      return_type = 'GetTrackingsResponseData'
+
       new_options = opts.merge(
         :operation => :"TrackingApi.get_trackings",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "trackings",
-        :is_paging => true
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TrackingApi#get_trackings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
 
-    # mark_tracking_completed_by_id
-    # Mark a tracking as completed. The tracking won't auto update until retrack it.
-    # @param id [String] tracking id
+      resp = Model::GetTrackingsResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
 
-    # @param body [Model::MarkTrackingCompletedByIdRequest] 
+    # create_tracking
+    # Create a tracking.<div style="visibility:hidden; height: 0"></div>
+
+    # @param body [Model::CreateTrackingRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::MarkTrackingCompletedByIdResponse] 
-    def mark_tracking_completed_by_id(id:, body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::CreateTrackingResponse]
+    def create_tracking(body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = mark_tracking_completed_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def mark_tracking_completed_by_id_with_http_info(id:, opts: {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TrackingApi.mark_tracking_completed_by_id ...'
-      end
-
-      if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
+        @api_client.config.logger.debug 'Calling API: TrackingApi.create_tracking ...'
       end
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/trackings/#{id}/mark-as-completed" 
+      local_var_path = "/tracking/2025-07/trackings"
       method = :'POST'
 
       # query parameters
@@ -295,51 +116,51 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'MarkTrackingCompletedByIdResponse'
-      
+      return_type = 'Tracking'
+
       new_options = opts.merge(
-        :operation => :"TrackingApi.mark_tracking_completed_by_id",
+        :operation => :"TrackingApi.create_tracking",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TrackingApi#mark_tracking_completed_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TrackingApi#create_tracking\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
 
-    # retrack_tracking_by_id
-    # Retrack an expired tracking. Max 3 times per tracking.
-    # @param id [String] tracking id
+      resp = Model::CreateTrackingResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # get_tracking_by_id
+    # Get tracking results of a single tracking.
+    # @param id [String] tracking ID
     # @param [Hash] opts the optional parameters
-    # @return [Model::RetrackTrackingByIdResponse] 
-    def retrack_tracking_by_id(id:, opts: {})
-      data, _status_code, _headers = retrack_tracking_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def retrack_tracking_by_id_with_http_info(id:, opts: {})
+    # @option opts [String] :fields List of fields to include in the response. Use comma for multiple values. Fields to include: `destination_postal_code`, `tracking_ship_date`, `tracking_account_number`, `tracking_key`, `origin_country_region`, `destination_country_region`, `destination_state`, `title`, `order_id`, `tag`, `checkpoints`
+    # @option opts [String] :lang Translate checkpoint messages from the carrier’s provided language to the target language. Supported target languages include:</br>&nbsp;&nbsp;&nbsp;&nbsp;- English (en)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French (fr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- French Canadian (fr-CA)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Arabic (ar)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Bulgarian (bg)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Catalan (ca)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Croatian (hr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Czech (cs)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Danish (da)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Dutch (nl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Estonian (et)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Filipino (tl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Finnish (fi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- German (de)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Greek (el)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hebrew (he)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hindi (hi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Hungarian (hu)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Indonesian (id)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Italian (it)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Japanese (ja)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Korean (ko)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Latvian (lv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Lithuanian (lt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Malay (ms)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Polish (pl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Portuguese (pt)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Romanian (ro)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Russian (ru)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Serbian (sr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovak (sk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Slovenian (sl)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Spanish (es)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Swedish (sv)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Thai (th)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Turkish (tr)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Ukrainian (uk)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Vietnamese (vi)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Simplified Chinese (zh-Hans)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Traditional Chinese (zh-Hant)</br>&nbsp;&nbsp;&nbsp;&nbsp;- Norwegian (nb)</br>
+    # @return [Model::GetTrackingByIdResponse]
+    def get_tracking_by_id(id:, opts: {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TrackingApi.retrack_tracking_by_id ...'
+        @api_client.config.logger.debug 'Calling API: TrackingApi.get_tracking_by_id ...'
       end
-
       if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
       end
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/trackings/#{id}/retrack" 
-      method = :'POST'
+      local_var_path = "/tracking/2025-07/trackings/#{id}"
+      method = :'GET'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+      query_params[:'lang'] = opts[:'lang'] if !opts[:'lang'].nil?
       # header parameters
       header_params = opts[:header_params] || {}
 
@@ -347,53 +168,46 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'RetrackTrackingByIdResponse'
-      
+      return_type = 'Tracking'
+
       new_options = opts.merge(
-        :operation => :"TrackingApi.retrack_tracking_by_id",
+        :operation => :"TrackingApi.get_tracking_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TrackingApi#retrack_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TrackingApi#get_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::GetTrackingByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
 
     # update_tracking_by_id
     # Update a tracking.
     # @param id [String] tracking ID
 
-    # @param body [Model::UpdateTrackingByIdRequest] 
+    # @param body [Model::UpdateTrackingByIdRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::UpdateTrackingByIdResponse] 
-    def update_tracking_by_id(id:, body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::UpdateTrackingByIdResponse]
+    def update_tracking_by_id(id:, body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = update_tracking_by_id_with_http_info(id:id, opts: opts)
-      data
-    end
-
-    def update_tracking_by_id_with_http_info(id:, opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.update_tracking_by_id ...'
       end
-
       if id.nil? or id.to_s == ''
-        raise InvalidParamError.new "id cannot be nil or empty"
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
       end
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/trackings/#{id}" 
+      local_var_path = "/tracking/2025-07/trackings/#{id}"
       method = :'PUT'
 
       # query parameters
@@ -405,23 +219,172 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'UpdateTrackingByIdResponse'
-      
+      return_type = 'Tracking'
+
       new_options = opts.merge(
         :operation => :"TrackingApi.update_tracking_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TrackingApi#update_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::UpdateTrackingByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # delete_tracking_by_id
+    # Delete a tracking.
+    # @param id [String] tracking ID
+    # @param [Hash] opts the optional parameters
+    # @return [Model::DeleteTrackingByIdResponse]
+    def delete_tracking_by_id(id:, opts: {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TrackingApi.delete_tracking_by_id ...'
+      end
+      if id.nil? or id.to_s == ''
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
+      end
+
+
+      # resource path
+      local_var_path = "/tracking/2025-07/trackings/#{id}"
+      method = :'DELETE'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # http body (model)
+      post_body = opts[:body]
+
+      # return_type
+      return_type = 'Tracking'
+
+      new_options = opts.merge(
+        :operation => :"TrackingApi.delete_tracking_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :body => post_body,
+        :return_type => return_type
+      )
+
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TrackingApi#delete_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+
+      resp = Model::DeleteTrackingByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # retrack_tracking_by_id
+    # Retrack an expired tracking. Max 3 times per tracking.
+    # @param id [String] tracking id
+    # @param [Hash] opts the optional parameters
+    # @return [Model::RetrackTrackingByIdResponse]
+    def retrack_tracking_by_id(id:, opts: {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TrackingApi.retrack_tracking_by_id ...'
+      end
+      if id.nil? or id.to_s == ''
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
+      end
+
+
+      # resource path
+      local_var_path = "/tracking/2025-07/trackings/#{id}/retrack"
+      method = :'POST'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # http body (model)
+      post_body = opts[:body]
+
+      # return_type
+      return_type = 'Tracking'
+
+      new_options = opts.merge(
+        :operation => :"TrackingApi.retrack_tracking_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :body => post_body,
+        :return_type => return_type
+      )
+
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TrackingApi#retrack_tracking_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+
+      resp = Model::RetrackTrackingByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
+
+    # mark_tracking_completed_by_id
+    # Mark a tracking as completed. The tracking won't auto update until retrack it.
+    # @param id [String] tracking id
+
+    # @param body [Model::MarkTrackingCompletedByIdRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Model::MarkTrackingCompletedByIdResponse]
+    def mark_tracking_completed_by_id(id:, body:, opts: {})
+      opts[:body] = body
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TrackingApi.mark_tracking_completed_by_id ...'
+      end
+      if id.nil? or id.to_s == ''
+        raise ApiError.new(:error_code => BAD_REQUEST, :message => "id cannot be nil or empty")
+      end
+
+
+      # resource path
+      local_var_path = "/tracking/2025-07/trackings/#{id}/mark-as-completed"
+      method = :'POST'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # http body (model)
+      post_body = opts[:body]
+
+      # return_type
+      return_type = 'Tracking'
+
+      new_options = opts.merge(
+        :operation => :"TrackingApi.mark_tracking_completed_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :body => post_body,
+        :return_type => return_type
+      )
+
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TrackingApi#mark_tracking_completed_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+
+      resp = Model::MarkTrackingCompletedByIdResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
   end
 end

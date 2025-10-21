@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class UpdateTrackingByIdRequest
-
     # By default this field shows the `tracking_number`, but you can customize it as you wish with any info (e.g. the order number).
     # title?: String;
     attr_accessor :title
@@ -32,7 +31,7 @@ module AftershipAPI::Model
     attr_accessor :order_promised_delivery_date
 
     # Shipment delivery type- `pickup_at_store`- `pickup_at_courier`- `door_to_door`
-    # delivery_type?: String;
+    # delivery_type?: UpdateTrackingByIdRequestDeliveryType;
     attr_accessor :delivery_type
 
     # Shipment pickup location for receiver
@@ -120,7 +119,7 @@ module AftershipAPI::Model
     attr_accessor :shipping_method
 
     # The field contains the customer information associated with the tracking. A maximum of three customer objects are allowed.
-    # customers?: CustomersUpdateTrackingByIdRequest[];
+    # customers?: UpdateTrackingByIdRequestCustomers[];
     attr_accessor :customers
 
     # Initializes the object
@@ -136,123 +135,123 @@ module AftershipAPI::Model
 
       if attributes.key?(:'title')
         self.title = attributes[:'title']
-      end 
+      end
 
       if attributes.key?(:'order_id')
         self.order_id = attributes[:'order_id']
-      end 
+      end
 
       if attributes.key?(:'order_id_path')
         self.order_id_path = attributes[:'order_id_path']
-      end 
+      end
 
       if attributes.key?(:'custom_fields')
         self.custom_fields = attributes[:'custom_fields']
-      end 
+      end
 
       if attributes.key?(:'note')
         self.note = attributes[:'note']
-      end 
+      end
 
       if attributes.key?(:'language')
         self.language = attributes[:'language']
-      end 
+      end
 
       if attributes.key?(:'order_promised_delivery_date')
         self.order_promised_delivery_date = attributes[:'order_promised_delivery_date']
-      end 
+      end
 
       if attributes.key?(:'delivery_type')
         self.delivery_type = attributes[:'delivery_type']
-      end 
+      end
 
       if attributes.key?(:'pickup_location')
         self.pickup_location = attributes[:'pickup_location']
-      end 
+      end
 
       if attributes.key?(:'pickup_note')
         self.pickup_note = attributes[:'pickup_note']
-      end 
+      end
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      end 
+      end
 
       if attributes.key?(:'tracking_account_number')
         self.tracking_account_number = attributes[:'tracking_account_number']
-      end 
+      end
 
       if attributes.key?(:'tracking_key')
         self.tracking_key = attributes[:'tracking_key']
-      end 
+      end
 
       if attributes.key?(:'tracking_ship_date')
         self.tracking_ship_date = attributes[:'tracking_ship_date']
-      end 
+      end
 
       if attributes.key?(:'order_number')
         self.order_number = attributes[:'order_number']
-      end 
+      end
 
       if attributes.key?(:'order_date')
         self.order_date = attributes[:'order_date']
-      end 
+      end
 
       if attributes.key?(:'shipment_type')
         self.shipment_type = attributes[:'shipment_type']
-      end 
+      end
 
       if attributes.key?(:'origin_country_region')
         self.origin_country_region = attributes[:'origin_country_region']
-      end 
+      end
 
       if attributes.key?(:'origin_state')
         self.origin_state = attributes[:'origin_state']
-      end 
+      end
 
       if attributes.key?(:'origin_city')
         self.origin_city = attributes[:'origin_city']
-      end 
+      end
 
       if attributes.key?(:'origin_postal_code')
         self.origin_postal_code = attributes[:'origin_postal_code']
-      end 
+      end
 
       if attributes.key?(:'origin_raw_location')
         self.origin_raw_location = attributes[:'origin_raw_location']
-      end 
+      end
 
       if attributes.key?(:'destination_country_region')
         self.destination_country_region = attributes[:'destination_country_region']
-      end 
+      end
 
       if attributes.key?(:'destination_state')
         self.destination_state = attributes[:'destination_state']
-      end 
+      end
 
       if attributes.key?(:'destination_city')
         self.destination_city = attributes[:'destination_city']
-      end 
+      end
 
       if attributes.key?(:'destination_postal_code')
         self.destination_postal_code = attributes[:'destination_postal_code']
-      end 
+      end
 
       if attributes.key?(:'destination_raw_location')
         self.destination_raw_location = attributes[:'destination_raw_location']
-      end 
+      end
 
       if attributes.key?(:'location_id')
         self.location_id = attributes[:'location_id']
-      end 
+      end
 
       if attributes.key?(:'shipping_method')
         self.shipping_method = attributes[:'shipping_method']
-      end 
+      end
 
       if attributes.key?(:'customers')
         self.customers = attributes[:'customers']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -265,7 +264,7 @@ module AftershipAPI::Model
         :'note' => :'String',
         :'language' => :'String',
         :'order_promised_delivery_date' => :'String',
-        :'delivery_type' => :'String',
+        :'delivery_type' => :'UpdateTrackingByIdRequestDeliveryType',
         :'pickup_location' => :'String',
         :'pickup_note' => :'String',
         :'slug' => :'String',
@@ -287,7 +286,7 @@ module AftershipAPI::Model
         :'destination_raw_location' => :'String',
         :'location_id' => :'String',
         :'shipping_method' => :'String',
-        :'customers' => :'Array<CustomersUpdateTrackingByIdRequest>',
+        :'customers' => :'Array<UpdateTrackingByIdRequestCustomers>',
       }
     end
 
@@ -440,4 +439,3 @@ module AftershipAPI::Model
     end
   end
 end
-

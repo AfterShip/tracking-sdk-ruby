@@ -36,7 +36,7 @@ module AftershipAPI
         canonicalized_resource = url.path
         if !params['query'].nil? && params['query'].length > 0
           sorted_query = params['query'].sort_by { |k, v| [k, v] }
-          canonicalized_resource += '?' + URI.encode_www_form(sorted_query)
+          canonicalized_resource += '?' + URI.encode_www_form(sorted_query).gsub('+', '%20')
         end
 
         # Form the string to sign
@@ -56,7 +56,7 @@ module AftershipAPI
         elsif params['auth_type'] == AUTHENTICATION_TYPE_RSA
           signature = sign_rsa(string_to_sign, params['secret'])
         else
-          raise InvalidOptionError, "Invalid authentication type: #{params['auth_type']}"
+          ApiError.new(:error_code => INVALID_OPTION, :message => "Invalid authentication type: #{params['auth_type']}")
         end
 
         signature	

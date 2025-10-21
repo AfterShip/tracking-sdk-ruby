@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class PredictBatchRequest
-
     # 
     # estimated_delivery_dates: EstimatedDeliveryDateRequest[];
     attr_accessor :estimated_delivery_dates
@@ -20,7 +19,7 @@ module AftershipAPI::Model
 
       if attributes.key?(:'estimated_delivery_dates')
         self.estimated_delivery_dates = attributes[:'estimated_delivery_dates']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -150,4 +149,3 @@ module AftershipAPI::Model
     end
   end
 end
-

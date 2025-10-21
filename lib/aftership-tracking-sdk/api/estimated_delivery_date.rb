@@ -3,7 +3,7 @@
 require 'cgi'
 
 module AftershipAPI
-  class EstimatedDeliveryDateApi 
+  class EstimatedDeliveryDateApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -13,27 +13,18 @@ module AftershipAPI
     # predict
     # > The estimated delivery date is provided by AfterShip, based on its AI-predictive model. You can display the EDD on the product page, cart, and order checkout page. It indicates when a customer will receive the order.You can use  to activate this feature.
 
-    # @param body [Model::PredictRequest] 
+    # @param body [Model::EstimatedDeliveryDateRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::PredictResponse] 
-    def predict(body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::PredictResponse]
+    def predict(body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = predict_with_http_info(opts: opts)
-      data
-    end
-
-    def predict_with_http_info(opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EstimatedDeliveryDateApi.predict ...'
       end
 
 
-
       # resource path
-      local_var_path = "/tracking/2025-07/estimated-delivery-date/predict" 
+      local_var_path = "/tracking/2025-07/estimated-delivery-date/predict"
       method = :'POST'
 
       # query parameters
@@ -45,49 +36,42 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'PredictResponse'
-      
+      return_type = 'EstimatedDeliveryDateResponse'
+
       new_options = opts.merge(
         :operation => :"EstimatedDeliveryDateApi.predict",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EstimatedDeliveryDateApi#predict\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::PredictResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
 
     # predict_batch
     # > The estimated delivery date is provided by AfterShip, based on its AI-predictive model. You can display the EDD on the product page, cart, and order checkout page. It indicates when a customer will receive the order.You can use  to activate this feature.Supported functionalities require:1. One `EstimatedDeliveryDate` object for one prediction result.2. Maximum 5 `EstimatedDeliveryDate` objects are allowed.3. API call will fail if any of the requests `EstimatedDeliveryDate` objects do not meet the specification requirement.
 
-    # @param body [Model::PredictBatchRequest] 
+    # @param body [Model::PredictBatchRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Model::PredictBatchResponse] 
-    def predict_batch(body:,opts: {})
-      if "" != ""
-        body = {:'' => body}
-      end
+    # @return [Model::PredictBatchResponse]
+    def predict_batch(body:, opts: {})
       opts[:body] = body
-      data, _status_code, _headers = predict_batch_with_http_info(opts: opts)
-      data
-    end
-
-    def predict_batch_with_http_info(opts: {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EstimatedDeliveryDateApi.predict_batch ...'
       end
 
 
-
       # resource path
-      local_var_path = "/tracking/2025-07/estimated-delivery-date/predict-batch" 
+      local_var_path = "/tracking/2025-07/estimated-delivery-date/predict-batch"
       method = :'POST'
 
       # query parameters
@@ -99,23 +83,25 @@ module AftershipAPI
       post_body = opts[:body]
 
       # return_type
-      return_type = 'PredictBatchResponse'
-      
+      return_type = 'PredictBatchResponseData'
+
       new_options = opts.merge(
         :operation => :"EstimatedDeliveryDateApi.predict_batch",
         :header_params => header_params,
         :query_params => query_params,
         :body => post_body,
-        :return_type => return_type,
-        :response_legacy_tag => "",
-        :is_paging => false
+        :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(method, local_var_path, new_options)
+      data, _status_code, headers = @api_client.call_api(method, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EstimatedDeliveryDateApi#predict_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
-      return data, status_code, headers
-    end 
+
+      resp = Model::PredictBatchResponse.new
+      resp.data = data
+      resp.response_header = headers
+      resp
+    end
   end
 end

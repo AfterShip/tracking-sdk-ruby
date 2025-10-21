@@ -2,7 +2,6 @@
 # Do not edit the class manually.
 module AftershipAPI::Model
   class EstimatedDeliveryDateRequest
-
     # AfterShip's unique code of courier. Please refer to https://track.aftership.com/couriers/download.
     # slug: String;
     attr_accessor :slug
@@ -12,15 +11,15 @@ module AftershipAPI::Model
     attr_accessor :service_type_name
 
     # The location from where the package is picked up by the carrier to be delivered to the final destination.
-    # origin_address: OriginAddressEstimatedDeliveryDateRequest;
+    # origin_address: EstimatedDeliveryDateRequestOriginAddress;
     attr_accessor :origin_address
 
     # The final destination of the customer where the delivery will be made.
-    # destination_address: DestinationAddressEstimatedDeliveryDateRequest;
+    # destination_address: EstimatedDeliveryDateRequestDestinationAddress;
     attr_accessor :destination_address
 
     # AfterShip uses this object to calculate the total weight of the order.
-    # weight?: WeightEstimatedDeliveryDateRequest;
+    # weight?: EstimatedDeliveryDateRequestWeight;
     attr_accessor :weight
 
     # The number of packages.
@@ -32,7 +31,7 @@ module AftershipAPI::Model
     attr_accessor :pickup_time
 
     # The local pickup time of the package.Either `pickup_time` or `estimated_pickup` is required.
-    # estimated_pickup?: EstimatedPickupEstimatedDeliveryDateRequest;
+    # estimated_pickup?: EstimatedDeliveryDateRequestEstimatedPickup;
     attr_accessor :estimated_pickup
 
     # Initializes the object
@@ -48,35 +47,35 @@ module AftershipAPI::Model
 
       if attributes.key?(:'slug')
         self.slug = attributes[:'slug']
-      end 
+      end
 
       if attributes.key?(:'service_type_name')
         self.service_type_name = attributes[:'service_type_name']
-      end 
+      end
 
       if attributes.key?(:'origin_address')
         self.origin_address = attributes[:'origin_address']
-      end 
+      end
 
       if attributes.key?(:'destination_address')
         self.destination_address = attributes[:'destination_address']
-      end 
+      end
 
       if attributes.key?(:'weight')
         self.weight = attributes[:'weight']
-      end 
+      end
 
       if attributes.key?(:'package_count')
         self.package_count = attributes[:'package_count']
-      end 
+      end
 
       if attributes.key?(:'pickup_time')
         self.pickup_time = attributes[:'pickup_time']
-      end 
+      end
 
       if attributes.key?(:'estimated_pickup')
         self.estimated_pickup = attributes[:'estimated_pickup']
-      end 
+      end
     end
 
     # Attribute type mapping.
@@ -84,12 +83,12 @@ module AftershipAPI::Model
       {
         :'slug' => :'String',
         :'service_type_name' => :'String',
-        :'origin_address' => :'OriginAddressEstimatedDeliveryDateRequest',
-        :'destination_address' => :'DestinationAddressEstimatedDeliveryDateRequest',
-        :'weight' => :'WeightEstimatedDeliveryDateRequest',
+        :'origin_address' => :'EstimatedDeliveryDateRequestOriginAddress',
+        :'destination_address' => :'EstimatedDeliveryDateRequestDestinationAddress',
+        :'weight' => :'EstimatedDeliveryDateRequestWeight',
         :'package_count' => :'Integer',
         :'pickup_time' => :'String',
-        :'estimated_pickup' => :'EstimatedPickupEstimatedDeliveryDateRequest',
+        :'estimated_pickup' => :'EstimatedDeliveryDateRequestEstimatedPickup',
       }
     end
 
@@ -220,4 +219,3 @@ module AftershipAPI::Model
     end
   end
 end
-
