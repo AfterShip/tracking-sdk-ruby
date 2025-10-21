@@ -36,7 +36,7 @@ module AftershipAPI
         canonicalized_resource = url.path
         if !params['query'].nil? && params['query'].length > 0
           sorted_query = params['query'].sort_by { |k, v| [k, v] }
-          canonicalized_resource += '?' + URI.encode_www_form(sorted_query)
+          canonicalized_resource += '?' + URI.encode_www_form(sorted_query).gsub('+', '%20')
         end
 
         # Form the string to sign

@@ -20,10 +20,10 @@ If you need support using AfterShip products, please contact support@aftership.c
   - [Error Handling](#error-handling)
     - [Error List](#error-list)
   - [Endpoints](#endpoints)
-    - [/estimated-delivery-date](#estimated-delivery-date)
     - [/trackings](#trackings)
     - [/couriers](#couriers)
     - [/courier-connections](#courier-connections)
+    - [/estimated-delivery-date](#estimated-delivery-date)
   - [Help](#help)
   - [License](#license)
 
@@ -138,9 +138,6 @@ The SDK will return an error object when there is any error during the request, 
 
 The AfterShip SDK has the following resource which are exactly the same as the API endpoints:
 
-- estimatedDeliveryDateResource
-  - Prediction for the Estimated Delivery Date
-  - Batch prediction for the Estimated Delivery Date
 - trackingResource
   - Get trackings
   - Create a tracking
@@ -158,28 +155,9 @@ The AfterShip SDK has the following resource which are exactly the same as the A
   - Get courier connection by id
   - Update courier connection by id
   - Delete courier connection by id
-
-### /estimated-delivery-date
-**POST** /estimated-delivery-date/predict
-
-```ruby
-    request = AftershipAPI::Model::EstimatedDeliveryDateRequest.new
-    request.slug = "valid_value"
-    origin_address = AftershipAPI::Model::EstimatedDeliveryDateRequestOriginAddress.new
-    request.origin_address = origin_address
-    destination_address = AftershipAPI::Model::EstimatedDeliveryDateRequestDestinationAddress.new
-    request.destination_address = destination_address
-    response = AftershipAPI::EstimatedDeliveryDate.predict(body: request)
-    p response
-```
-
-**POST** /estimated-delivery-date/predict-batch
-
-```ruby
-    request = AftershipAPI::Model::PredictBatchRequest.new
-    response = AftershipAPI::EstimatedDeliveryDate.predict_batch(body: request)
-    p response
-```
+- estimatedDeliveryDateResource
+  - Prediction for the Estimated Delivery Date
+  - Batch prediction for the Estimated Delivery Date
 
 ### /trackings
 **GET** /trackings
@@ -290,6 +268,28 @@ The AfterShip SDK has the following resource which are exactly the same as the A
 
 ```ruby
     response = AftershipAPI::CourierConnection.delete_courier_connections_by_id(id:"valid_value", )
+    p response
+```
+
+### /estimated-delivery-date
+**POST** /estimated-delivery-date/predict
+
+```ruby
+    request = AftershipAPI::Model::EstimatedDeliveryDateRequest.new
+    request.slug = "valid_value"
+    origin_address = AftershipAPI::Model::EstimatedDeliveryDateRequestOriginAddress.new
+    request.origin_address = origin_address
+    destination_address = AftershipAPI::Model::EstimatedDeliveryDateRequestDestinationAddress.new
+    request.destination_address = destination_address
+    response = AftershipAPI::EstimatedDeliveryDate.predict(body: request)
+    p response
+```
+
+**POST** /estimated-delivery-date/predict-batch
+
+```ruby
+    request = AftershipAPI::Model::PredictBatchRequest.new
+    response = AftershipAPI::EstimatedDeliveryDate.predict_batch(body: request)
     p response
 ```
 
