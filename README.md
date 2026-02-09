@@ -38,8 +38,8 @@ Before you begin to integrate:
 
 ### API and SDK Version
 
-- SDK Version: 
-- API Version: 2025-07
+- SDK Version: 14.0.0
+- API Version: 2026-01
 ## Quick Start
 
 ### Installation
@@ -50,7 +50,7 @@ gem install aftership-tracking-sdk
 Or add a line to your Gemfile
 
 ```bash
-gem 'aftership-tracking-sdk', '~> 13.0.0'
+gem 'aftership-tracking-sdk', '~> 14.0.0'
 ```
 
 ## Constructor

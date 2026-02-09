@@ -150,10 +150,6 @@ module AftershipAPI::Model
     # tracked_count?: Float;
     attr_accessor :tracked_count
 
-    # Indicates if the shipment is trackable till the final destination.Three possible values:- true- false- null
-    # last_mile_tracking_supported?: Boolean;
-    attr_accessor :last_mile_tracking_supported
-
     # The recipient’s language. If you set up AfterShip notifications in different languages, we use this to send the recipient tracking updates in their preferred language.
     # language?: String;
     attr_accessor :language
@@ -178,8 +174,8 @@ module AftershipAPI::Model
     # return_to_sender?: Boolean;
     attr_accessor :return_to_sender
 
-    # The promised delivery date of the order. It uses the formats:- YYYY-MM-DD- YYYY-MM-DDTHH:mm:ss- YYYY-MM-DDTHH:mm:ssZ
-    # order_promised_delivery_date?: String;
+    # The promised delivery date of the order in shipment recipient’s timezone.
+    # order_promised_delivery_date?: TrackingOrderPromisedDeliveryDate;
     attr_accessor :order_promised_delivery_date
 
     # Shipment delivery type- pickup_at_store- pickup_at_courier- door_to_door
@@ -461,10 +457,6 @@ module AftershipAPI::Model
         self.tracked_count = attributes[:'tracked_count']
       end
 
-      if attributes.key?(:'last_mile_tracking_supported')
-        self.last_mile_tracking_supported = attributes[:'last_mile_tracking_supported']
-      end
-
       if attributes.key?(:'language')
         self.language = attributes[:'language']
       end
@@ -654,14 +646,13 @@ module AftershipAPI::Model
         :'subtag_message' => :'String',
         :'title' => :'String',
         :'tracked_count' => :'Float',
-        :'last_mile_tracking_supported' => :'Boolean',
         :'language' => :'String',
         :'unique_token' => :'String',
         :'checkpoints' => :'Array<Checkpoint>',
         :'subscribed_smses' => :'Array<String>',
         :'subscribed_emails' => :'Array<String>',
         :'return_to_sender' => :'Boolean',
-        :'order_promised_delivery_date' => :'String',
+        :'order_promised_delivery_date' => :'TrackingOrderPromisedDeliveryDate',
         :'delivery_type' => :'String',
         :'pickup_location' => :'String',
         :'pickup_note' => :'String',
@@ -735,7 +726,6 @@ module AftershipAPI::Model
         :'subtag_message' => :'subtag_message',
         :'title' => :'title',
         :'tracked_count' => :'tracked_count',
-        :'last_mile_tracking_supported' => :'last_mile_tracking_supported',
         :'language' => :'language',
         :'unique_token' => :'unique_token',
         :'checkpoints' => :'checkpoints',

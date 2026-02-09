@@ -26,11 +26,11 @@ module AftershipAPI::Model
     # package_count?: Integer;
     attr_accessor :package_count
 
-    # The local pickup time in the origin address time zone of the package.Either `pickup_time` or `estimated_pickup` is required.
+    # The local pickup time in the origin address time zone of the package.</br><span style=color:#ff6b2b;padding:2px>**Either `pickup_time` or `estimated_pickup` is required.**</span>
     # pickup_time?: String;
     attr_accessor :pickup_time
 
-    # The local pickup time of the package.Either `pickup_time` or `estimated_pickup` is required.
+    # The local pickup time of the package.</br><span style=color:#ff6b2b;padding:2px>**Either `pickup_time` or `estimated_pickup` is required.**</span>
     # estimated_pickup?: EstimatedDeliveryDateRequestEstimatedPickup;
     attr_accessor :estimated_pickup
 

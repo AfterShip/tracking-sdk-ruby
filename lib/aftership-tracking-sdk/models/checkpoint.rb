@@ -27,8 +27,8 @@ module AftershipAPI::Model
     attr_accessor :state
 
     # Postal code info provided by carrier
-    # zip?: String;
-    attr_accessor :zip
+    # postal_code?: String;
+    attr_accessor :postal_code
 
     # The latitude and longitude coordinates indicate the precise location of the shipments that are currently in transit.
     # coordinate?: CheckpointCoordinate;
@@ -105,8 +105,8 @@ module AftershipAPI::Model
         self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'zip')
-        self.zip = attributes[:'zip']
+      if attributes.key?(:'postal_code')
+        self.postal_code = attributes[:'postal_code']
       end
 
       if attributes.key?(:'coordinate')
@@ -159,7 +159,7 @@ module AftershipAPI::Model
         :'location' => :'String',
         :'city' => :'String',
         :'state' => :'String',
-        :'zip' => :'String',
+        :'postal_code' => :'String',
         :'coordinate' => :'CheckpointCoordinate',
         :'country_region' => :'String',
         :'country_region_name' => :'String',
@@ -182,7 +182,7 @@ module AftershipAPI::Model
         :'location' => :'location',
         :'city' => :'city',
         :'state' => :'state',
-        :'zip' => :'zip',
+        :'postal_code' => :'postal_code',
         :'coordinate' => :'coordinate',
         :'country_region' => :'country_region',
         :'country_region_name' => :'country_region_name',
