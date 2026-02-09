@@ -23,7 +23,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/couriers"
+      local_var_path = "/tracking/2026-01/couriers"
       method = :'GET'
 
       # query parameters
@@ -72,7 +72,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2025-07/couriers/detect"
+      local_var_path = "/tracking/2026-01/couriers/detect"
       method = :'POST'
 
       # query parameters

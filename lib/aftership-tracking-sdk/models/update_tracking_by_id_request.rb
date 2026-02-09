@@ -26,8 +26,8 @@ module AftershipAPI::Model
     # language?: String;
     attr_accessor :language
 
-    # The promised delivery date of the order. It uses the formats:- YYYY-MM-DD- YYYY-MM-DDTHH:mm:ss- YYYY-MM-DDTHH:mm:ssZ
-    # order_promised_delivery_date?: String;
+    # The promised delivery date of the order in shipment recipient’s timezone.
+    # order_promised_delivery_date?: UpdateTrackingByIdRequestOrderPromisedDeliveryDate;
     attr_accessor :order_promised_delivery_date
 
     # Shipment delivery type- `pickup_at_store`- `pickup_at_courier`- `door_to_door`
@@ -263,7 +263,7 @@ module AftershipAPI::Model
         :'custom_fields' => :'Object',
         :'note' => :'String',
         :'language' => :'String',
-        :'order_promised_delivery_date' => :'String',
+        :'order_promised_delivery_date' => :'UpdateTrackingByIdRequestOrderPromisedDeliveryDate',
         :'delivery_type' => :'UpdateTrackingByIdRequestDeliveryType',
         :'pickup_location' => :'String',
         :'pickup_note' => :'String',

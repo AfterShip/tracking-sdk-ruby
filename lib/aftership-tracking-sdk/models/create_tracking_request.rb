@@ -34,17 +34,17 @@ module AftershipAPI::Model
     # language?: String;
     attr_accessor :language
 
-    # The promised delivery date of the order. It uses the formats:- YYYY-MM-DD- YYYY-MM-DDTHH:mm:ss- YYYY-MM-DDTHH:mm:ssZ
-    # order_promised_delivery_date?: String;
+    # The promised delivery date of the order in shipment recipient’s timezone.
+    # order_promised_delivery_date?: CreateTrackingRequestOrderPromisedDeliveryDate;
     attr_accessor :order_promised_delivery_date
-
-    # Shipment delivery type- pickup_at_store- pickup_at_courier- door_to_door
-    # delivery_type?: CreateTrackingRequestDeliveryType;
-    attr_accessor :delivery_type
 
     # Shipment pickup location for receiver
     # pickup_location?: String;
     attr_accessor :pickup_location
+
+    # Shipment delivery type- pickup_at_store- pickup_at_courier- door_to_door
+    # delivery_type?: CreateTrackingRequestDeliveryType;
+    attr_accessor :delivery_type
 
     # Shipment pickup note for receiver
     # pickup_note?: String;
@@ -193,12 +193,12 @@ module AftershipAPI::Model
         self.order_promised_delivery_date = attributes[:'order_promised_delivery_date']
       end
 
-      if attributes.key?(:'delivery_type')
-        self.delivery_type = attributes[:'delivery_type']
-      end
-
       if attributes.key?(:'pickup_location')
         self.pickup_location = attributes[:'pickup_location']
+      end
+
+      if attributes.key?(:'delivery_type')
+        self.delivery_type = attributes[:'delivery_type']
       end
 
       if attributes.key?(:'pickup_note')
@@ -313,9 +313,9 @@ module AftershipAPI::Model
         :'custom_fields' => :'Object',
         :'order_id_path' => :'String',
         :'language' => :'String',
-        :'order_promised_delivery_date' => :'String',
-        :'delivery_type' => :'CreateTrackingRequestDeliveryType',
+        :'order_promised_delivery_date' => :'CreateTrackingRequestOrderPromisedDeliveryDate',
         :'pickup_location' => :'String',
+        :'delivery_type' => :'CreateTrackingRequestDeliveryType',
         :'pickup_note' => :'String',
         :'tracking_account_number' => :'String',
         :'tracking_key' => :'String',
@@ -356,8 +356,8 @@ module AftershipAPI::Model
         :'order_id_path' => :'order_id_path',
         :'language' => :'language',
         :'order_promised_delivery_date' => :'order_promised_delivery_date',
-        :'delivery_type' => :'delivery_type',
         :'pickup_location' => :'pickup_location',
+        :'delivery_type' => :'delivery_type',
         :'pickup_note' => :'pickup_note',
         :'tracking_account_number' => :'tracking_account_number',
         :'tracking_key' => :'tracking_key',
