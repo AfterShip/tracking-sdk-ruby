@@ -6,7 +6,7 @@ module AftershipAPI::Model
     # meta: Meta;
     attr_accessor :meta
 
-    # Object describes the tracking information.<div style="display:none; height: 0"></div>
+    # Object describes the tracking information.<div style="visibility:hidden; height: 0"></div>
     # data: Tracking;
     attr_accessor :data
 

@@ -22,6 +22,10 @@ module AftershipAPI::Model
     # language?: String;
     attr_accessor :language
 
+    # The customer's identifier on the merchant or platform (for example, Shopify) side.
+    # id?: String;
+    attr_accessor :id
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -52,6 +56,10 @@ module AftershipAPI::Model
       if attributes.key?(:'language')
         self.language = attributes[:'language']
       end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
     end
 
     # Attribute type mapping.
@@ -62,6 +70,7 @@ module AftershipAPI::Model
         :'phone_number' => :'String',
         :'email' => :'String',
         :'language' => :'String',
+        :'id' => :'String',
       }
     end
 
@@ -73,6 +82,7 @@ module AftershipAPI::Model
         :'phone_number' => :'phone_number',
         :'email' => :'email',
         :'language' => :'language',
+        :'id' => :'id',
       }
     end
 

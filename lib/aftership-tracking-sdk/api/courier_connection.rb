@@ -24,7 +24,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2026-01/courier-connections"
+      local_var_path = "/tracking/2026-07/courier-connections"
       method = :'GET'
 
       # query parameters
@@ -74,7 +74,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2026-01/courier-connections"
+      local_var_path = "/tracking/2026-07/courier-connections"
       method = :'POST'
 
       # query parameters
@@ -122,7 +122,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2026-01/courier-connections/#{id}"
+      local_var_path = "/tracking/2026-07/courier-connections/#{id}"
       method = :'GET'
 
       # query parameters
@@ -173,7 +173,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2026-01/courier-connections/#{id}"
+      local_var_path = "/tracking/2026-07/courier-connections/#{id}"
       method = :'PATCH'
 
       # query parameters
@@ -221,7 +221,7 @@ module AftershipAPI
 
 
       # resource path
-      local_var_path = "/tracking/2026-01/courier-connections/#{id}"
+      local_var_path = "/tracking/2026-07/courier-connections/#{id}"
       method = :'DELETE'
 
       # query parameters

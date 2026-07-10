@@ -6,7 +6,7 @@ module AftershipAPI::Model
     # country_region: String;
     attr_accessor :country_region
 
-    # State, province, or the equivalent location of the origin address. Use 3 letters of ISO 3166-1 country/region code for countries/regions without state. Either `origin_address.state` or `origin_address.postal_code` is required.
+    # State, province, or the equivalent location of the origin address. Use 3 letters of ISO 3166-1 country/region code for countries/regions without state. </br><span style=color:#ff6b2b;padding:2px>**Either `origin_address.state` or `origin_address.postal_code` is required.**</span>
     # state?: String;
     attr_accessor :state
 
@@ -14,7 +14,7 @@ module AftershipAPI::Model
     # city?: String;
     attr_accessor :city
 
-    # Postal code of the origin address. Use 3 letters of ISO 3166-1 country/region code for countries/regions without postal code. Either `origin_address.state` or `origin_address.postal_code` is required.
+    # Postal code of the origin address. Use 3 letters of ISO 3166-1 country/region code for countries/regions without postal code. </br><span style=color:#ff6b2b;padding:2px>**Either `origin_address.state` or `origin_address.postal_code` is required.**</span>
     # postal_code?: String;
     attr_accessor :postal_code
 

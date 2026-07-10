@@ -70,6 +70,10 @@ module AftershipAPI::Model
     # source?: CheckpointSource;
     attr_accessor :source
 
+    # Unique hash identifier for each checkpoint event, could be used for deduplication.
+    # hash?: String;
+    attr_accessor :hash
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -148,6 +152,10 @@ module AftershipAPI::Model
       if attributes.key?(:'source')
         self.source = attributes[:'source']
       end
+
+      if attributes.key?(:'hash')
+        self.hash = attributes[:'hash']
+      end
     end
 
     # Attribute type mapping.
@@ -170,6 +178,7 @@ module AftershipAPI::Model
         :'raw_tag' => :'String',
         :'events' => :'Array<CheckpointEvents>',
         :'source' => :'CheckpointSource',
+        :'hash' => :'String',
       }
     end
 
@@ -193,6 +202,7 @@ module AftershipAPI::Model
         :'raw_tag' => :'raw_tag',
         :'events' => :'events',
         :'source' => :'source',
+        :'hash' => :'hash',
       }
     end
 
