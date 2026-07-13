@@ -122,6 +122,10 @@ module AftershipAPI::Model
     # shipment_weight?: TrackingShipmentWeight;
     attr_accessor :shipment_weight
 
+    # Physical dimensions of the package (length, width and height).
+    # shipment_dimensions?: TrackingShipmentDimensions;
+    attr_accessor :shipment_dimensions
+
     # Signed by information for delivered shipment.
     # signed_by?: String;
     attr_accessor :signed_by
@@ -298,6 +302,26 @@ module AftershipAPI::Model
     # customers?: TrackingCustomers[];
     attr_accessor :customers
 
+    # An array of proof of delivery (POD) records, such as a signature or photo captured upon successful delivery.This field returns a value only after the feature is enabled. Please contact your customer success manager if you'd like to know more.
+    # proof_of_delivery?: TrackingProofOfDelivery[];
+    attr_accessor :proof_of_delivery
+
+    # Multi-piece shipment refers to a scenario where a single shipment order is fulfilled by multiple physical packages. Each piece has its own carrier-assigned tracking number, but all pieces belong to the same shipment. This commonly occurs when an order is too large to fit in one box, or when items are packed separately for handling reasons.This field contains multi-piece shipment metadata describing a group of packages that belong to the same shipment.This field returns a value only when your subscription plan includes a multi-piece feature. To enable, go to .
+    # multi_piece_info?: TrackingMultiPieceInfo;
+    attr_accessor :multi_piece_info
+
+    # Indicates the business direction of the shipment in the e-commerce fulfillment lifecycle.Possible values:- `forward`: A forward (outbound-to-customer) shipment created for order fulfillment.- `return`: A return (customer-to-merchant) shipment created for after-sales return or exchange.This field is populated in either of the following cases:1. You explicitly provided it when creating the tracking.2. AfterShip automatically detected a linked forward or return shipment.It also determines which related shipment object (`forward_shipment` or `return_shipment`) may appear in the response.
+    # shipment_direction?: TrackingShipmentDirection;
+    attr_accessor :shipment_direction
+
+    # The associated return shipment linked to the current outbound shipment.This field is only present when `shipment_direction = "forward"` and AfterShip has detected a linked return shipment.
+    # return_shipment?: TrackingReturnShipment;
+    attr_accessor :return_shipment
+
+    # The original outbound shipment linked to this return. Use this to trace a return back to its source delivery.This field is only present when `shipment_direction = "return"` and AfterShip has detected a linked forward shipment.
+    # forward_shipment?: TrackingForwardShipment;
+    attr_accessor :forward_shipment
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -427,6 +451,10 @@ module AftershipAPI::Model
 
       if attributes.key?(:'shipment_weight')
         self.shipment_weight = attributes[:'shipment_weight']
+      end
+
+      if attributes.key?(:'shipment_dimensions')
+        self.shipment_dimensions = attributes[:'shipment_dimensions']
       end
 
       if attributes.key?(:'signed_by')
@@ -604,6 +632,26 @@ module AftershipAPI::Model
       if attributes.key?(:'customers')
         self.customers = attributes[:'customers']
       end
+
+      if attributes.key?(:'proof_of_delivery')
+        self.proof_of_delivery = attributes[:'proof_of_delivery']
+      end
+
+      if attributes.key?(:'multi_piece_info')
+        self.multi_piece_info = attributes[:'multi_piece_info']
+      end
+
+      if attributes.key?(:'shipment_direction')
+        self.shipment_direction = attributes[:'shipment_direction']
+      end
+
+      if attributes.key?(:'return_shipment')
+        self.return_shipment = attributes[:'return_shipment']
+      end
+
+      if attributes.key?(:'forward_shipment')
+        self.forward_shipment = attributes[:'forward_shipment']
+      end
     end
 
     # Attribute type mapping.
@@ -639,6 +687,7 @@ module AftershipAPI::Model
         :'shipment_delivery_date' => :'String',
         :'shipment_type' => :'String',
         :'shipment_weight' => :'TrackingShipmentWeight',
+        :'shipment_dimensions' => :'TrackingShipmentDimensions',
         :'signed_by' => :'String',
         :'source' => :'String',
         :'tag' => :'Tag',
@@ -683,6 +732,11 @@ module AftershipAPI::Model
         :'first_mile' => :'TrackingFirstMile',
         :'last_mile' => :'TrackingLastMile',
         :'customers' => :'Array<TrackingCustomers>',
+        :'proof_of_delivery' => :'Array<TrackingProofOfDelivery>',
+        :'multi_piece_info' => :'TrackingMultiPieceInfo',
+        :'shipment_direction' => :'TrackingShipmentDirection',
+        :'return_shipment' => :'TrackingReturnShipment',
+        :'forward_shipment' => :'TrackingForwardShipment',
       }
     end
 
@@ -719,6 +773,7 @@ module AftershipAPI::Model
         :'shipment_delivery_date' => :'shipment_delivery_date',
         :'shipment_type' => :'shipment_type',
         :'shipment_weight' => :'shipment_weight',
+        :'shipment_dimensions' => :'shipment_dimensions',
         :'signed_by' => :'signed_by',
         :'source' => :'source',
         :'tag' => :'tag',
@@ -763,6 +818,11 @@ module AftershipAPI::Model
         :'first_mile' => :'first_mile',
         :'last_mile' => :'last_mile',
         :'customers' => :'customers',
+        :'proof_of_delivery' => :'proof_of_delivery',
+        :'multi_piece_info' => :'multi_piece_info',
+        :'shipment_direction' => :'shipment_direction',
+        :'return_shipment' => :'return_shipment',
+        :'forward_shipment' => :'forward_shipment',
       }
     end
 

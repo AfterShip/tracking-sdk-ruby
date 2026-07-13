@@ -122,6 +122,10 @@ module AftershipAPI::Model
     # customers?: UpdateTrackingByIdRequestCustomers[];
     attr_accessor :customers
 
+    # Indicates the business direction of the shipment in the e-commerce fulfillment lifecycle.Possible values:- `forward`: A forward (outbound-to-customer) shipment created for order fulfillment.- `return`: A return (customer-to-merchant) shipment created for after-sales return or exchange.When provided, this field gives AfterShip additional context about the shipment's intent, enabling more accurate status identification.
+    # shipment_direction?: UpdateTrackingByIdRequestShipmentDirection;
+    attr_accessor :shipment_direction
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -252,6 +256,10 @@ module AftershipAPI::Model
       if attributes.key?(:'customers')
         self.customers = attributes[:'customers']
       end
+
+      if attributes.key?(:'shipment_direction')
+        self.shipment_direction = attributes[:'shipment_direction']
+      end
     end
 
     # Attribute type mapping.
@@ -287,6 +295,7 @@ module AftershipAPI::Model
         :'location_id' => :'String',
         :'shipping_method' => :'String',
         :'customers' => :'Array<UpdateTrackingByIdRequestCustomers>',
+        :'shipment_direction' => :'UpdateTrackingByIdRequestShipmentDirection',
       }
     end
 
@@ -323,6 +332,7 @@ module AftershipAPI::Model
         :'location_id' => :'location_id',
         :'shipping_method' => :'shipping_method',
         :'customers' => :'customers',
+        :'shipment_direction' => :'shipment_direction',
       }
     end
 

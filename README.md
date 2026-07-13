@@ -38,8 +38,8 @@ Before you begin to integrate:
 
 ### API and SDK Version
 
-- SDK Version: 14.0.0
-- API Version: 2026-01
+- SDK Version: 15.0.0
+- API Version: 2026-07
 ## Quick Start
 
 ### Installation
@@ -50,7 +50,7 @@ gem install aftership-tracking-sdk
 Or add a line to your Gemfile
 
 ```bash
-gem 'aftership-tracking-sdk', '~> 14.0.0'
+gem 'aftership-tracking-sdk', '~> 15.0.0'
 ```
 
 ## Constructor
@@ -88,6 +88,27 @@ end
 ## Rate Limiter
 
 See the [Rate Limit](https://www.aftership.com/docs/tracking/quickstart/rate-limit) to understand the AfterShip rate limit policy.
+
+The API returns its current rate limit status in the headers of every response, and the SDK exposes these headers on both successful responses and rate-limited errors, so you can monitor your consumption proactively instead of waiting for `429` errors.
+
+| Header                  | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| `X-RateLimit-Limit`     | The rate limit ceiling for the current endpoint per second |
+| `X-RateLimit-Remaining` | The number of requests left for the 1-second window        |
+| `X-RateLimit-Reset`     | The Unix timestamp when the rate limit will be reset       |
+
+Every successful response exposes a `response_header` hash (case-insensitive lookup) alongside `data`. Taking the Quick Start example above:
+
+```ruby
+remaining = response.response_header['x-ratelimit-remaining'].to_i
+reset_at = response.response_header['x-ratelimit-reset'].to_i
+
+if remaining <= 1
+  # Throttle or defer lower-priority requests until reset_at
+end
+```
+
+When the rate limit is exceeded, the request fails with a `429` error that carries the same headers — see [Error Handling](#error-handling).
 
 ## Error Handling
 
